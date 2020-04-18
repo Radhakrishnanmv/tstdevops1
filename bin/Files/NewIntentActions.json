@@ -1,0 +1,2170 @@
+[
+  {
+    "IntentName": "GroupSelection",
+    "RequestText": "",
+    "IntentType": "",
+    "SubIntents": [
+      {
+        "IntentName": "UserGroupFeedbackTypedIn",
+        "IntentType": "Argument",
+        "RequestText": "Select Group",
+        "Options": [ "A-M", "N-R", "S-Z" ]
+      }
+    ],
+    "NextIntent": [
+      {
+        "Condition": "'A-M'='{UserGroupFeedbackTypedIn}'",
+        "Name": "TestCascading"
+      },
+      {
+        "Condition": "'N-R'='{UserGroupFeedbackTypedIn}'",
+        "Name": "TestUpdateCascading"
+      },
+      {
+        "Condition": "'S-Z'='{UserGroupFeedbackTypedIn}'",
+        "Name": "TestAttachmentJSON"
+      }
+    ]
+  },
+  {
+    "IntentName": "TestAttachmentJSON",
+    "IntentType": "Choice",
+    "RequestText": "Test Attachment JSON",
+    "SourceNameOfCallMethod": "http://www.google.com",
+    "TypeOfSource": "WebService(Post)",
+    "CallMethodName": "----",
+    "CallType": "Sync",
+    "Result": "{\r\n\r\n  \"IntentName\": \"DynamicManageAttachment\",\r\n\r\n  \"RequestText\": \"Manage Attachments of Incident# INC0847619\",\r\n\r\n  \"IntentType\": \"\",\r\n\r\n  \"Result\": \"\",\r\n\r\n  \"SourceNameOfCallMethod\": \"www.google.com\",\r\n\r\n  \"TypeOfSource\": \"WebService(Post)\",\r\n\r\n  \"CallMethodName\": \"----\",\r\n\r\n  \"CallType\": \"Sync\",\r\n\r\n  \"SubIntents\": [\r\n\r\n   {\r\n\r\n               \"IntentName\": \"TicketId\",\r\n\r\n               \"TypeOfSource\": \"String\",\r\n\r\n               \"IntentType\": \"Argument\",\r\n\r\n               \"RequestText\": \"\",\r\n\r\n               \"Result\": \"INC0847619\",\r\n\r\n               \"ResultForInternalProcess\": \"INC0847619\"\r\n\r\n   },\r\n\r\n   {\r\n\r\n               \"IntentName\": \"DeletedFiles\",\r\n\r\n               \"IntentType\": \"CardArgument\",\r\n\r\n               \"OptionType\": \"Choice\",\r\n\r\n               \"TypeOfSource\": \"String\",\r\n\r\n               \"RequestText\": \"Select Checkbox to delete attachment\",\r\n\r\n               \"Options\": [ \"Test1\",\"Test2\"] ,\r\n\r\n               \"IsOptional\": true\r\n\r\n   },\r\n\r\n   {\r\n\r\n               \"IntentName\": \"AttachmentPaths\",\r\n\r\n               \"IntentType\": \"Argument\",\r\n\r\n               \"RequestText\": \"To **add attachemnt** upload the file using paperclip icon.\",\r\n\r\n               \"TypeOfSource\": \"Attachment\",\r\n\r\n               \"IsOptional\": true\r\n\r\n   }\r\n\r\n  ]\r\n\r\n}\r\n\r\n",
+    "ResultType": "ProcessJson"
+  },
+  {
+    "IntentName": "TestAttachmentJSON1",
+    "IntentType": "Choice",
+    "RequestText": "Test Attachment JSON1",
+    "SourceNameOfCallMethod": "http://www.google.com",
+    "TypeOfSource": "WebService(Post)",
+    "CallMethodName": "----",
+    "CallType": "Sync",
+    "Result": " {\r\n\r\n  \"IntentName\": \"DynamicManageAttachment\",\r\n\r\n  \"RequestText\": \"Manage Attachments of Incident# INC0898321\",\r\n\r\n  \"IntentType\": \"\",\r\n\r\n  \"Result\": \"\",\r\n\r\n  \"SourceNameOfCallMethod\": \"{ServerName}:{PortNumber}/BotToolsIntegration/REST/servicenow/ManageAttachmentsSubmit\",\r\n\r\n  \"TypeOfSource\": \"WebService(Post)\",\r\n\r\n  \"CallMethodName\": \"----\",\r\n\r\n  \"CallType\": \"Sync\",\r\n\r\n  \"ResultType\": \"ProcessCardJson\",\r\n\r\n  \"SubIntents\": [\r\n\r\n   {\r\n\r\n                    \"IntentName\": \"TicketId\",\r\n\r\n                    \"TypeOfSource\": \"String\",\r\n\r\n                    \"IntentType\": \"Argument\",\r\n\r\n                    \"RequestText\": \"\",\r\n\r\n                    \"Result\": \"INC0898321\",\r\n\r\n                    \"ResultForInternalProcess\": \"INC0898321\"\r\n\r\n   },\r\n\r\n   {\r\n\r\n                    \"IntentName\": \"DeletedFiles\",\r\n\r\n                    \"IntentType\": \"CardArgument\",\r\n\r\n                    \"OptionType\": \"Choice\",\r\n\r\n                    \"TypeOfSource\": \"String\",\r\n\r\n                    \"RequestText\": \"Select Checkbox to **delete** attachment\",\r\n\r\n                    \"Options\": [ \"[error19.JPG](https://adientprod.service-now.com/api/now/attachment/e695ee5b1bb248d06bfb86ecdc4bcbc9/file)\"] ,\r\n\r\n                    \"IsOptional\": true\r\n\r\n   },\r\n\r\n   {\r\n\r\n                    \"IntentName\": \"AttachmentPaths\",\r\n\r\n                    \"IntentType\": \"Argument\",\r\n\r\n                    \"RequestText\": \"To **add attachemnt** upload the file using paperclip icon.\",\r\n\r\n                    \"TypeOfSource\": \"Attachment\",\r\n\r\n                    \"IsOptional\": true\r\n\r\n   }\r\n\r\n  ]\r\n\r\n}",
+    "ResultType": "ProcessJson"
+  },
+  {
+    "IntentName": "TestHTML",
+    "IntentType": "Choice",
+    "RequestText": "TestHTML",
+    "SourceNameOfCallMethod": "http://www.google.com",
+    "TypeOfSource": "WebService(Post)",
+    "CallMethodName": "----",
+    "CallType": "Sync",
+    "Result": "<hr style='border-width:2px;border-color:#174c5a' /><table border='1'><tr style='text-align: left;font-weight: bolder;background-color:#80B327;color: white;'><td>Incident Number&nbsp;</td><td>Short Description&nbsp;</td><td>Caller&nbsp;</td><td>Assigned to&nbsp;</td><td>Priority&nbsp;</td><td>State&nbsp;</td><td width='20%'>Description&nbsp;</td></tr><tr style='background-color:#FFFFFF;'><td style='text-align: left;vertical-align:top;'>INC0893965&nbsp;</td><td style='text-align: left;vertical-align:top;'>need help desk ticket for CAD METHODS WORKFLOW&nbsp;</td><td style='text-align: left;vertical-align:top;'>Daniel Brennan&nbsp;</td><td style='text-align: left;vertical-align:top;'>Nivedita Maringanti&nbsp;</td><td style='text-align: left;vertical-align:top;'>Low-Priority 5&nbsp;</td><td style='text-align: left;vertical-align:top;'>Assigned&nbsp;</td><td style='text-align: left;vertical-align:top;'>This is a HOT issue please open parts listed below for cleaning and publication changes 4284571 ab 4131859 ab 4131887 ac 4131885 ac &nbsp;</td></tr><tr style='background-color:#EEEEEE;'><td style='text-align: left;vertical-align:top;'>INC0898218&nbsp;</td><td style='text-align:left;vertical-align:top;'>RE: Workflow CR-5077722:FF Spec_D Clip Elast Titanschwarz_2626751&nbsp;</td><td style='text-align: left;vertical-align:top;'>Václav Svoboda&nbsp;</td><td style='text-align: left;vertical-align:top;'>Nivedita Maringanti&nbsp;</td><td style='text-align: left;vertical-align:top;'>Medium-Priority 4&nbsp;</td><td style='text-align: left;vertical-align:top;'>Assigned&nbsp;</td><td style='text-align: left;vertical-align:top;'>Is there any reason for which you don't validate your tasks in Teamcenter for this CR?If you have further question, don't hesitate to ask amarin70 or the PE J?r?me Villiot.&nbsp;</td></tr></table>"
+  },
+  {
+    "IntentName": "TestHTML1",
+    "IntentType": "Choice",
+    "RequestText": "TestHTML1",
+    "SourceNameOfCallMethod": "http://www.google.com",
+    "TypeOfSource": "WebService(Post)",
+    "CallMethodName": "----",
+    "CallType": "Sync",
+    "Result": "<hr style='border-width:2px;border-color:#174c5a' /><div>Test</div>"
+  },
+  {
+    "IntentName": "TestCascading",
+    "RequestText": "Test Cascading",
+    "IntentType": "",
+    "Result": "TestCascading Result",
+    "SubIntents": [
+      {
+        "IntentName": "Groups",
+        "IntentType": "CardArgument",
+        "OptionType": "DropDown",
+        "TypeOfSource": "String",
+        "RequestText": "Choose Groups",
+        "Options": [ "https://monabotapi.azurewebsites.net/Files/GroupDataA-M.txt" ]
+      },
+
+      {
+        "IntentName": "Country",
+        "IntentType": "CardArgument",
+        "OptionType": "DropDown",
+        "TypeOfSource": "String",
+        "RequestText": "Choose Country",
+        "Options": [ "https://monabotapi.azurewebsites.net/Files/TestCountry.txt" ]
+      },
+      {
+        "IntentName": "State",
+        "IntentType": "CardArgument",
+        "OptionType": "CascadeDropDown",
+        "TypeOfSource": "String",
+        "RequestText": "Choose State",
+        "Options": [ "https://monabotapi.azurewebsites.net/Files/TestState.txt" ]
+      },
+      {
+        "IntentName": "City",
+        "IntentType": "CardArgument",
+        "OptionType": "CascadeDropDown",
+        "TypeOfSource": "String",
+        "RequestText": "Choose City",
+        "Options": [ "https://monabotapi.azurewebsites.net/Files/TestCity.txt" ]
+      }
+    ]
+  },
+  {
+    "IntentName": "TestUpdateCascading",
+    "RequestText": "Test UpdateCascading",
+    "IntentType": "",
+    "Result": "UpdateCascading Result",
+    "SubIntents": [
+      {
+        "IntentName": "UserEmail",
+        "IntentType": "CardArgument",
+        "TypeOfSource": "String",
+        "RequestText": "User Email"
+      },
+      {
+        "IntentName": "Country",
+        "IntentType": "CardArgument",
+        "OptionType": "DropDown",
+        "TypeOfSource": "String",
+        "RequestText": "Choose Country",
+        "Options": [ "https://monabotapi.azurewebsites.net/Files/TestCountry.txt" ],
+        "Result": "US1",
+        "ResultForInternalProcess": "US1"
+      },
+      {
+        "IntentName": "State",
+        "IntentType": "CardArgument",
+        "OptionType": "CascadeDropDown",
+        "TypeOfSource": "String",
+        "RequestText": "Choose State",
+        "Options": [ "https://monabotapi.azurewebsites.net/Files/TestState.txt" ],
+        "Result": "AZ1",
+        "ResultForInternalProcess": "AZ1"
+      },
+      {
+        "IntentName": "City",
+        "IntentType": "CardArgument",
+        "OptionType": "CascadeDropDown",
+        "TypeOfSource": "String",
+        "RequestText": "Choose City",
+        "Options": [ "https://monabotapi.azurewebsites.net/Files/TestCity.txt" ],
+        "Result": "TZ",
+        "ResultForInternalProcess": "TZ"
+      }
+    ]
+  },
+  {
+    "IntentName": "GetADUser",
+    "RequestText": "Get AD user details",
+    "SourceNameOfCallMethod": "http://localhost:7777/BotMessageProcess.svc/GetADUserInfo",
+    "TypeOfSource": "WebService(Post)",
+    "CallMethodName": "----",
+    "CallType": "Sync",
+    "Result": "Location : {officeLocation} \n Phone : {mobilePhone} \n Job Title : {jobTitle} \n Manager : {manager} \n Groups : {group}",
+    "SubIntents": [
+      {
+        "IntentName": "UserEmail",
+        "IntentType": "Argument",
+        "RequestText": "Enter user email"
+      },
+      {
+        "IntentName": "AccessToken",
+        "IntentType": "Argument",
+        "Result": "{AccessToken}",
+        "ResultForInternalProcess": "{AccessToken}"
+      },
+      {
+        "IntentName": "ADFields",
+        "IntentType": "Argument",
+        "Result": "officeLocation,mobilePhone,jobTitle,manager,group",
+        "ResultForInternalProcess": "officeLocation,mobilePhone,jobTitle,manager,group"
+      }
+    ]
+  },
+  {
+    "IntentName": "ResolveTCLoginIssues",
+    "RequestText": "",
+    "IntentType": "",
+    "Result": "Let me see how can I help you",
+    "NextIntent": [
+      {
+        "Condition": "",
+        "Name": "CheckChatTCLogin"
+      }
+    ]
+  },
+  {
+    "IntentName": "CheckChatTCLogin",
+    "RequestText": "",
+    "IntentType": "",
+    "SourceNameOfCallMethod": "Exe\\BotConditionFlowRandomBool\\BotConditionFlowRandomBool.exe",
+    "CallMethodName": "----",
+    "TypeOfSource": "Exe",
+    "CallType": "Sync",
+    "NextIntent": [
+      {
+        "Condition": "'Yes'='{Result}'",
+        "Name": "CheckingUserAccount"
+      },
+      {
+        "Condition": "'No'='{Result}'",
+        "Name": "CheckingTCServerStatus"
+      }
+    ]
+  },
+
+  {
+    "IntentName": "CheckingTCServerStatus",
+    "RequestText": "",
+    "IntentType": "",
+    "Result": "Issue with logging in. Let me check the server status",
+    "NextIntent": [
+      {
+        "Condition": "",
+        "Name": "CheckTCServerStatus"
+      }
+    ]
+  },
+  {
+    "IntentName": "CheckTCServerStatus",
+    "RequestText": "",
+    "IntentType": "",
+    "SourceNameOfCallMethod": "Exe\\BotConditionFlowRandomBool\\BotConditionFlowRandomBool.exe",
+    "CallMethodName": "----",
+    "TypeOfSource": "Exe",
+    "CallType": "Sync",
+    "NextIntent": [
+      {
+        "Condition": "'Yes'='{Result}'",
+        "Name": "TCServerUp"
+      },
+      {
+        "Condition": "'No'='{Result}'",
+        "Name": "TCServerDown"
+      }
+    ]
+  },
+  {
+    "IntentName": "TCServerUp",
+    "RequestText": "",
+    "IntentType": "",
+    "Result": "TC server is up.Please contact administrator for further assistance."
+  },
+  {
+    "IntentName": "TCServerDown",
+    "RequestText": "",
+    "IntentType": "",
+    "Result": "TC server is down.Please contact administrator for further assistance."
+  },
+  {
+    "IntentName": "CheckingUserAccount",
+    "RequestText": "",
+    "IntentType": "",
+    "Result": "I am able to login to TC. Let me check your account.",
+    "NextIntent": [
+      {
+        "Condition": "",
+        "Name": "CheckUserAccount"
+      }
+    ]
+  },
+  {
+    "IntentName": "CheckUserAccount",
+    "RequestText": "",
+    "IntentType": "",
+    "SourceNameOfCallMethod": "Exe\\BotConditionFlowRandomBool\\BotConditionFlowRandomBool.exe",
+    "CallMethodName": "----",
+    "TypeOfSource": "Exe",
+    "CallType": "Sync",
+    "NextIntent": [
+      {
+        "Condition": "'Yes'='{Result}'",
+        "Name": "CheckingUserStatus"
+      },
+      {
+        "Condition": "'No'='{Result}'",
+        "Name": "CreateUserinTC"
+      }
+    ]
+  },
+  {
+    "IntentName": "CreateUserinTC",
+    "RequestText": "",
+    "IntentType": "",
+    "Result": "I do not see a Teamcenter user account for you. Please create one using the account creation link. <a href='http://www.fourcolorstech.com'>CreateAccount</a>"
+  },
+  {
+    "IntentName": "CheckingUserStatus",
+    "RequestText": "",
+    "IntentType": "",
+    "Result": "User account found. Let me see if your account is active.",
+    "NextIntent": [
+      {
+        "Condition": "",
+        "Name": "CheckUserStatus"
+      }
+    ]
+  },
+  {
+    "IntentName": "CheckUserStatus",
+    "RequestText": "",
+    "IntentType": "",
+    "SourceNameOfCallMethod": "Exe\\BotConditionFlowRandomBool\\BotConditionFlowRandomBool.exe",
+    "CallMethodName": "----",
+    "TypeOfSource": "Exe",
+    "CallType": "Sync",
+    "NextIntent": [
+      {
+        "Condition": "'Yes'='{Result}'",
+        "Name": "UserCleanUpScript"
+      },
+      {
+        "Condition": "'No'='{Result}'",
+        "Name": "CheckingUserLastActivity"
+      }
+    ]
+  },
+  {
+    "IntentName": "CheckingUserLastActivity",
+    "RequestText": "",
+    "IntentType": "",
+    "Result": "Your account is inactive. Let me find since when.",
+    "NextIntent": [
+      {
+        "Condition": "",
+        "Name": "CheckUserLastActivity"
+      }
+    ]
+  },
+
+  {
+    "IntentName": "CheckUserLastActivity",
+    "RequestText": "",
+    "IntentType": "",
+    "SourceNameOfCallMethod": "Exe\\BotConditionFlowRandomBool\\BotConditionFlowRandomBool.exe",
+    "CallMethodName": "----",
+    "TypeOfSource": "Exe",
+    "CallType": "Sync",
+    "NextIntent": [
+      {
+        "Condition": "'Yes'='{Result}'",
+        "Name": "UserActive90DaysOlder"
+      },
+      {
+        "Condition": "'No'='{Result}'",
+        "Name": "UserActiveWithin90Days"
+      }
+    ]
+  },
+  {
+    "IntentName": "UserActive90DaysOlder",
+    "RequestText": "",
+    "IntentType": "",
+    "Result": "Please raise a Helpdesk ticket to activate your account."
+  },
+  {
+    "IntentName": "UserActiveWithin90Days",
+    "RequestText": "",
+    "IntentType": "",
+    "Result": "Your account has been deactivated. Please submit a request to activate your account. <a href='http://www.fourcolorstech.com'>ActivateAccount</a>"
+  },
+
+
+  {
+    "IntentName": "UserCleanUpScript",
+    "RequestText": "",
+    "IntentType": "",
+    "Result": "Please run this clean up script and let me know if this resolves your issue. http://bot-cleanup-script/run.bat.",
+    "NextIntent": [
+      {
+        "Condition": "",
+        "Name": "UserCleanUpScriptFeedback"
+      }
+    ]
+  },
+  {
+    "IntentName": "UserCleanUpScriptFeedback",
+    "RequestText": "",
+    "IntentType": "",
+    "SubIntents": [
+      {
+        "IntentName": "CleanupScriptFeedback",
+        "IntentType": "Argument",
+        "RequestText": "Does the clean up script resolve your issue ?"
+      }
+    ],
+    "NextIntent": [
+      {
+        "Condition": "'Yes'='{CleanupScriptFeedback}'",
+        "Name": "UserFeedback"
+      },
+      {
+        "Condition": "'No'='{CleanupScriptFeedback}'",
+        "Name": "RiseTicket"
+      }
+    ]
+
+  },
+  {
+    "IntentName": "RiseTicket",
+    "RequestText": "",
+    "IntentType": "",
+    "Result": "Please send a snapshot of the error. Your service now ticket number is SNOW0001 ",
+    "NextIntent": [
+      {
+        "Condition": "",
+        "Name": "CheckingSimilarTickets"
+      }
+    ]
+  },
+  {
+    "IntentName": "UserFeedback",
+    "RequestText": "",
+    "IntentType": "",
+    "Result": "Great ! Let me know how was your experience working with the BOT."
+  },
+  {
+    "IntentName": "CheckingSimilarTickets",
+    "RequestText": "",
+    "IntentType": "",
+    "SourceNameOfCallMethod": "Exe\\BotConditionFlowRandomBool\\BotConditionFlowRandomBool.exe",
+    "CallMethodName": "----",
+    "TypeOfSource": "Exe",
+    "CallType": "Sync",
+    "NextIntent": [
+      {
+        "Condition": "'Yes'='{Result}'",
+        "Name": "CheckSimilarTickets"
+      }
+    ]
+  },
+  {
+    "IntentName": "CheckSimilarTickets",
+    "RequestText": "",
+    "IntentType": "",
+    "Result": "I see few more users are having similar issues like yours."
+  },
+  {
+    "IntentName": "IsThisHelpful",
+    "RequestText": "",
+    "IntentType": "",
+    "SubIntents": [
+      {
+        "IntentName": "UserFeedbackTypedIn",
+        "IntentType": "Argument",
+        "RequestText": "Was this helpful : Yes / No ?",
+        "Options": [ "Yes", "No" ]
+      }
+    ],
+    "NextIntent": [
+      {
+        "Condition": "'Yes'='{UserFeedbackTypedIn}'",
+        "Name": "GladToHelp"
+      },
+      {
+        "Condition": "'No'='{UserFeedbackTypedIn}'",
+        "Name": "WillDoBetterNextTime"
+      }
+    ]
+  },
+  {
+    "IntentName": "GladToHelp",
+    "RequestText": "",
+    "IntentType": "",
+    "Result": "Glad I could be of help"
+  },
+  {
+    "IntentName": "WillDoBetterNextTime",
+    "RequestText": "",
+    "IntentType": "",
+    "Result": "I will try to do better next time"
+  },
+  {
+    "IntentName": "Emoji",
+    "RequestText": "",
+    "IntentType": "",
+    "Result": "\\U0001F600"
+  },
+  {
+    "IntentName": "NotAuthorised",
+    "RequestText": "",
+    "IntentType": "",
+    "Result": "Sorry, You are not authorized to access {BotName}."
+  },
+  {
+    "IntentName": "Default",
+    "RequestText": "",
+    "IntentType": "",
+    "Result": "Sorry, I could not understand you."
+  },
+  {
+    "IntentName": "None",
+    "RequestText": "",
+    "IntentType": "",
+    "Result": "Sorry, I do not understand you. "
+  },
+  {
+    "IntentName": "Error",
+    "RequestText": "",
+    "IntentType": "",
+    "Result": "Sorry, {Result}"
+  },
+  {
+    "IntentName": "Welcome",
+    "RequestText": "",
+    "IntentType": "",
+    "Result": "Welcome {UserName} I am {BotName}. How may I help you today ? "
+  },
+  {
+    "IntentName": "History",
+    "RequestText": "Your history",
+    "IntentType": "",
+    "Result": "No history"
+  },
+  {
+    "IntentName": "Exit",
+    "RequestText": "",
+    "IntentType": "",
+    "Result": "OK, How may I help you ?"
+  },
+  {
+    "IntentName": "InvalidTicketNumber",
+    "RequestText": "",
+    "IntentType": "",
+    "Result": "Ticket Number is invalid."
+  },
+  {
+    "IntentName": "KnowledgeBase",
+    "SourceNameOfCallMethod": "KBCall",
+    "TypeOfSource": "",
+    "CallMethodName": "",
+    "CallType": "Sync",
+    "ResultType": "",
+    "NextIntent": [],
+    "SubIntents": [
+      {
+        "IntentName": "searchTerm",
+        "TypeOfSource": "String",
+        "IntentType": "Argument",
+        "RequestText": "Which text you want to search on KB",
+        "Result": "",
+        "ResultForInternalProcess": ""
+      },
+      {
+        "IntentName": "user",
+        "TypeOfSource": "String",
+        "IntentType": "Argument",
+        "RequestText": "",
+        "Result": "{UserName}",
+        "ResultForInternalProcess": "{UserName}"
+      },
+      {
+        "IntentName": "group",
+        "TypeOfSource": "String",
+        "IntentType": "Argument",
+        "Result": "TestGroup",
+        "ResultForInternalProcess": "TestGroup"
+      },
+      {
+        "IntentName": "category",
+        "TypeOfSource": "String",
+        "IntentType": "Argument",
+        "Result": "__INFO__",
+        "ResultForInternalProcess": "__INFO__"
+      }
+    ]
+  },
+  {
+    "IntentName": "Intro",
+    "RequestText": "",
+    "IntentType": "",
+    "Result": "Hey {UserName} ! How can I help you today? from democog"
+  },
+  {
+    "IntentName": "IntroTest",
+    "RequestText": "",
+    "IntentType": "",
+    "Result": "Hey {UserName} ! How can I help you today? from mona"
+  },
+  {
+    "IntentName": "UpdateIntentJSONInMemory",
+    "RequestText": "",
+    "IntentType": "",
+    "QueueReturnMessage": "Intent refresh successful. Security refresh in process",
+    "SourceNameOfCallMethod": "Exe\\BotUserContextDataUpdater\\MVFC.Bot.BotUserDataUpdater.exe",
+    "CallMethodName": "----",
+    "TypeOfSource": "Exe",
+    "CallType": "Async",
+    "Result": "Security refresh successful (yes) "
+  },
+  {
+    "IntentName": "SIGNIN",
+    "RequestText": "",
+    "IntentType": "",
+    "Result": "You logged in"
+  },
+  {
+    "IntentName": "InvestigationAboutBot",
+    "RequestText": "",
+    "IntentType": "",
+    "Result": "Good. How are you doing?",
+    "NextIntent": [
+      {
+        "Condition": "",
+        "Name": "Task"
+      }
+    ]
+  },
+  {
+    "IntentName": "InvestigationAboutBotPositiveResult",
+    "RequestText": "",
+    "IntentType": "",
+    "Result": "Good, How may I help you today?"
+  },
+  {
+    "IntentName": "InvestigationAboutBotNegativeResult",
+    "RequestText": "",
+    "IntentType": "",
+    "Result": "Sad to hear. Well, is there something I can do for you ?",
+    "NextIntent": [
+      {
+        "Condition": "",
+        "Name": "Task"
+      }
+    ]
+  },
+  {
+    "IntentName": "Bye",
+    "RequestText": "",
+    "IntentType": "",
+    "Result": "Bye Bye "
+  },
+  {
+    "IntentName": "Introduction",
+    "RequestText": "",
+    "IntentType": "",
+    "Result": " I am {BotName}.  I can be integrated with a any of your Enterprise Applications and provide you with the right tools to improve efficiency. I can serve as a personal assistant and store and provide information as needed."
+  },
+  {
+    "IntentName": "Age",
+    "RequestText": "",
+    "IntentType": "",
+    "Result": "I am three years old"
+  },
+  {
+    "IntentName": "Live",
+    "RequestText": "",
+    "IntentType": "",
+    "Result": "Well.. In the Ethernet world :)"
+  },
+  {
+    "IntentName": "ExampleImproveEfficiency",
+    "RequestText": "",
+    "IntentType": "",
+    "Result": " Sure.. Take a look at this video. <a href='https://businessservicebot-fourcolorstechoutlook.msappproxy.net/Files/OtherDocuments/ConfigurationManager_Story.flv'>Video</a>"
+  },
+  {
+    "IntentName": "Architecture",
+    "RequestText": "",
+    "IntentType": "",
+    "Result": "I am built on Microsoft BOT Framework and currently use LUIS for Natural Language Processing. I can be deployed on the cloud or locally."
+  },
+  {
+    "IntentName": "Security",
+    "RequestText": "",
+    "IntentType": "",
+    "Result": "I am currently guarded by the Active Directory Security for users, groups. I am also in process of getting equipped with a OTP and Static Pin (key)"
+  },
+  {
+    "IntentName": "BroadCasting",
+    "RequestText": "Broadcast",
+    "IntentType": "Choice",
+    "ValidateMessage": "Please select one of the given option in the list.",
+    "SubIntents": [
+      {
+        "IntentName": "Immediate",
+        "IntentType": "Choice",
+        "RequestText": "Broadcast a Message now",
+        "SourceNameOfCallMethod": "-------------",
+        "TypeOfSource": "---",
+        "QueueReturnMessage": "It will be sent shortly",
+        "Result": "{ImmediateContent}",
+        "CallMethodName": "SENDMSGTOALLBOTUSERS",
+        "CallType": "Async",
+        "AllowedGroupsAndUsersToAccess": "poovarasan@fourcolorstechoutlook.onmicrosoft.com",
+        "MessageForNotAllowed": "You are not authorized to access the resource",
+        "EventType": "Events",
+        "EventDate": "",
+        "SubIntents": [
+          {
+            "IntentName": "ImmediateContent",
+            "IntentType": "Argument",
+            "TypeOfSource": "string",
+            "RequestText": "Enter your message to broadcast immediately"
+          }
+        ]
+      },
+      {
+        "IntentName": "Schedule",
+        "IntentType": "Choice",
+        "RequestText": "Schedule an Event",
+        "SourceNameOfCallMethod": "-------------",
+        "EventType": "Events",
+        "EventDate": "{ScheduleDate}",
+        "TypeOfSource": "---",
+        "CallMethodName": "SENDMSGTOALLBOTUSERS",
+        "CallDate": "{ScheduleRemindDays} Day AGO from {ScheduleDate}|{ScheduleRemindHours} Hour AGO from {ScheduleDate}",
+        "CallType": "Async",
+        "AllowedGroupsAndUsersToShowMenu": "poovarasan@fourcolorstechoutlook.onmicrosoft.com",
+        "Result": "{ScheduleContent} On {ScheduleDate}",
+        "SubIntents": [
+          {
+            "IntentName": "ScheduleContent",
+            "IntentType": "Argument",
+            "TypeOfSource": "String",
+            "ValidateMessage": "",
+            "RequestText": "Enter the name of the event"
+          },
+          {
+            "IntentName": "ScheduleDate",
+            "IntentType": "Argument",
+            "TypeOfSource": "Date",
+            "ValidateMessage": "Please enter valid datetime",
+            "RequestText": "Enter the date & time of event. Format: MM/DD/YYYY HH:MM"
+          },
+          {
+            "IntentName": "ScheduleRemindDays",
+            "IntentType": "Argument",
+            "TypeOfSource": "String",
+            "RequestText": "How many days before the event do you want the reminder to be set? (Single day/multiple days) \r\n\r\nEg: 1,5,10"
+          },
+          {
+            "IntentName": "ScheduleRemindHours",
+            "IntentType": "Argument",
+            "TypeOfSource": "String",
+            "RequestText": "How many hours before the event do you want the reminder to be set? (Single time/multiple \r\n\r\ntimes) Eg: 1,5,10"
+          }
+        ]
+      },
+      {
+        "IntentName": "GetEvent",
+        "RequestText": "GetEvent",
+        "IntentType": "Choice",
+        "EventType": "{EventName}",
+        "EventDate": "{Date}",
+        "SourceNameOfCallMethod": "-------",
+        "TypeOfSource": "--------",
+        "CallMethodName": "GetRecentEvent",
+        "CallType": "Sync",
+        "Result": "",
+        "SubIntents": [
+          {
+            "IntentName": "EventName",
+            "TypeOfSource": "String",
+            "IntentType": "Argument",
+            "RequestText": "Enter Event Name"
+          },
+          {
+            "IntentName": "Date",
+            "TypeOfSource": "String",
+            "IntentType": "Argument",
+            "RequestText": "Enter Which Day Event"
+          }
+        ]
+      },
+      {
+        "IntentName": "Back",
+        "RequestText": "Back",
+        "IntentType": "Choice",
+        "NextIntent": [
+          {
+            "Condition": "",
+            "Name": "Task"
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "IntentName": "TestCardJSON",
+    "IntentType": "Choice",
+    "RequestText": "Test Card JSON",
+    "Result": "{'$schema':'http://adaptivecards.io/schemas/adaptive-card.json','type': 'AdaptiveCard','version': '1.0','body': [{'type': 'Image','url': 'http://adaptivecards.io/content/cats/1.png'}]}",
+    "ResultType": "ProcessCardJson"
+  },
+  {
+    "IntentName": "AddToGroupTest",
+    "IntentType": "Choice",
+    "RequestText": "Add To Group",
+    "SourceNameOfCallMethod": "http://IP-C6134D42:8082/BotToolsIntegration/REST/servicenow/IsOpenIncident",
+    "TypeOfSource": "WebService(Post)",
+    "AllowedGroupsAndUsersToShowMenu": "annam@fourcolorstechoutlook.onmicrosoft.com ",
+    "AllowedGroupsAndUsersToAccess": "annam@fourcolorstechoutlook.onmicrosoft.com ",
+    "CallMethodName": "----",
+    "CallType": "Sync",
+    "SubIntents": [
+      {
+        "IntentName": "TicketId",
+        "TypeOfSource": "String",
+        "RequestText": "Enter the service now ticket number",
+        "IntentType": "Argument"
+      }
+    ],
+    "NextIntent": [
+      {
+        "Condition": "'true'='{Result}'",
+        "Name": "AddToGroupInternal"
+      },
+      {
+        "Condition": "'false'='{Result}'",
+        "Name": "InvalidTicketNumber"
+      }
+    ]
+  },
+  {
+    "IntentName": "Task",
+    "IntentType": "",
+    "RequestText": "What would you like to do",
+    "ValidateMessage": "Please select any of the below tasks.",
+    "SubIntents": [
+      {
+        "IntentName": "AdaptiveCardSyncTest",
+        "IntentType": "Choice",
+        "RequestText": "Adaptive Card Sync Test",
+        "SourceNameOfCallMethod": "",
+        "TypeOfSource": "",
+        "CallMethodName": "",
+        "CallType": "",
+        "SubIntents": [
+          {
+            "IntentName": "UserEmail",
+            "IntentType": "CardArgument",
+            "TypeOfSource": "String",
+            "RequestText": "User Email"
+          },
+          {
+            "IntentName": "Description",
+            "IntentType": "CardArgument",
+            "TypeOfSource": "String",
+            "RequestText": "Type Description"
+          },
+          {
+            "IntentName": "ADFields",
+            "IntentType": "CardArgument",
+            "TypeOfSource": "String",
+            "RequestText": "AD Fields"
+          }
+        ]
+      },
+      {
+        "IntentName": "TeamcenterAdmin",
+        "IntentType": "Choice",
+        "RequestText": "Teamcenter",
+        "SubIntents": [
+          {
+            "IntentName": "CheckObjWorkflowStatus",
+            "IntentType": "Choice",
+            "RequestText": "Get Object Workflow Status",
+            "SourceNameOfCallMethod": "Exe\\java\\executeOperationWrapper.jar",
+            "TypeOfSource": "jar",
+            "CallMethodName": "-----",
+            "CallType": "Async",
+            "QueueReturnMessage": "Get Set Go! Your request number is {TrackId}",
+            "AllowedGroupsAndUsersToShowMenu": "",
+            "AllowedGroupsAndUsersToAccess": "",
+            "Result": "{TrackId} : {Result}",
+            "SubIntents": [
+              {
+                "IntentName": "SiteOptions",
+                "IntentType": "Argument",
+                "RequestText": "Confirm sites",
+                "Options": [ "FCT_AWS", "NC", "TX", "AllSites" ]
+              },
+              {
+                "IntentName": "IntentName",
+                "IntentType": "Argument",
+                "TypeOfSource": "String",
+                "RequestText": "",
+                "Result": "CheckObjWorkflowStatus",
+                "ResultForInternalProcess": "CheckObjWorkflowStatus"
+              },
+              {
+                "IntentName": "ItemId",
+                "IntentType": "Argument",
+                "TypeOfSource": "String",
+                "RequestText": "Please enter Item id for which you need the status"
+              },
+              {
+                "IntentName": "RevId",
+                "IntentType": "Argument",
+                "TypeOfSource": "String",
+                "RequestText": "Please enter rev id for this item"
+              }
+            ]
+          },
+          {
+            "IntentName": "ChangePassword",
+            "IntentType": "Choice",
+            "RequestText": "Change Password",
+            "SourceNameOfCallMethod": "Exe\\java\\executeOperationWrapper.jar",
+            "TypeOfSource": "jar",
+            "CallMethodName": "----",
+            "CallType": "Async",
+            "QueueReturnMessage": "I am processing your request as quickly as possible. Your request number is {TrackId}",
+            "Result": "{TrackId} : {Result}",
+            "ConfirmationOnlyForHistory": "Yes",
+            "AuditLog": "No",
+            "ConfirmationInputs": {
+              "ConfirmationRequestMSGTemplate": "The following inputs are given by you, is it ok?<br> 1.UserId'{UserId}'<br>",
+              "EditRequestOptions": [
+                {
+                  "Key": "UserId",
+                  "Value": "User id whose password needs to be changed"
+                }
+              ],
+              "EditRequestText": "Which inputs you need to change please type the field number."
+            },
+            "SubIntents": [
+              {
+                "IntentName": "SiteOptions",
+                "IntentType": "Argument",
+                "RequestText": "Confirm sites",
+                "Options": [ "FCT_AWS", "NC", "TX", "AllSites" ]
+              },
+              {
+                "IntentName": "Task111",
+                "IntentType": "Argument",
+                "TypeOfSource": "String",
+                "RequestText": "",
+                "Result": "ChangePassword",
+                "ResultForInternalProcess": "ChangePassword",
+                "AuditLog": "Yes"
+              },
+              {
+                "IntentName": "UserId",
+                "IntentType": "Argument",
+                "TypeOfSource": "String",
+                "ValidateExpression": "^.{7}[0-9]$",
+                "ValidateMessage": "Please Type Correct UserId",
+                "RequestText": "Please enter Teamcenter userid for password change",
+                "AuditLog": "Column4"
+              }
+            ]
+          },
+          {
+            "IntentName": "ListUsers",
+            "IntentType": "Choice",
+            "RequestText": "List Users",
+            "SourceNameOfCallMethod": "Exe\\java\\executeOperationWrapper.jar",
+            "TypeOfSource": "jar",
+            "CallMethodName": "----",
+            "CallType": "Async",
+            "QueueReturnMessage": "Getting the list for you. Your request number is {TrackId}",
+            "Result": "{TrackId} : {Result}",
+            "AllowedGroupsAndUsersToShowMenu": "",
+            "AllowedGroupsAndUsersToAccess": "",
+            "MessageForNotAllowed": "You are not authorized to access the resource",
+            "SubIntents": [
+              {
+                "IntentName": "SiteOptions",
+                "IntentType": "Argument",
+                "RequestText": "Confirm sites",
+                "Options": [ "https://monabotapi.azurewebsites.net/Files/TestCity.txt", "FCT_AWS", "NC", "TX", "AllSites" ]
+              },
+              {
+                "IntentName": "IntentName",
+                "TypeOfSource": "String",
+                "IntentType": "Argument",
+                "RequestText": "",
+                "Result": "ListUsers",
+                "ResultForInternalProcess": "ListUsers"
+              },
+              {
+                "IntentName": "BatchFileFullPathOnServer",
+                "TypeOfSource": "String",
+                "IntentType": "Argument",
+                "RequestText": "",
+                "Result": "BatchFileFullPathOnServer",
+                "ResultForInternalProcess": "D:\\Bot\\Fourcolors\\BusinessProcessService\\Exe\\UtilityFrameWork\\listusers\\list_user.bat"
+              },
+              {
+                "IntentName": "UtilLogFullPathOnServer",
+                "TypeOfSource": "String",
+                "IntentType": "Argument",
+                "RequestText": "",
+                "Result": "UtilLogFullPathOnServer",
+                "ResultForInternalProcess": "D:\\Bot\\Fourcolors\\BusinessProcessService\\Exe\\UtilityFrameWork\\utilLogFolder"
+              },
+              {
+                "IntentName": "FileUploadURL",
+                "TypeOfSource": "String",
+                "IntentType": "Argument",
+                "RequestText": "",
+                "Result": "FileUploadURL",
+                "ResultForInternalProcess": "https://businessservicebot-fourcolorstechoutlook.msappproxy.net/BotMessageProcess.svc/FileUpload"
+              }
+            ]
+          },
+          {
+            "IntentName": "ReleaseManRelease",
+            "IntentType": "Choice",
+            "RequestText": "Apply Release status",
+            "SourceNameOfCallMethod": "Exe\\java\\executeOperationWrapper.jar",
+            "TypeOfSource": "jar",
+            "CallMethodName": "----",
+            "CallType": "Async",
+            "QueueReturnMessage": "Applying the release status. Your request number is {TrackId}",
+            "Result": "{TrackId} : {Result}",
+            "AllowedGroupsAndUsersToShowMenu": "annam@fourcolorstechoutlook.onmicrosoft.com ",
+            "AllowedGroupsAndUsersToAccess": "annam@fourcolorstechoutlook.onmicrosoft.com ",
+            "MessageForNotAllowed": "You are not authorized to access the resource",
+            "SubIntents": [
+              {
+                "IntentName": "SiteOptions",
+                "IntentType": "Argument",
+                "RequestText": "",
+                "Result": "FCT_AWS",
+                "ResultForInternalProcess": "FCT_AWS"
+              },
+              {
+                "IntentName": "IntentName",
+                "TypeOfSource": "String",
+                "IntentType": "Argument",
+                "RequestText": "",
+                "Result": "ReleaseManRelease",
+                "ResultForInternalProcess": "ReleaseManRelease"
+              },
+              {
+                "IntentName": "BatchFileFullPathOnServer",
+                "TypeOfSource": "String",
+                "IntentType": "Argument",
+                "RequestText": "",
+                "Result": "BatchFileFullPathOnServer",
+                "ResultForInternalProcess": "D:\\Bot\\Fourcolors\\BusinessProcessService\\Exe\\UtilityFrameWork\\release_man\\release_man.bat"
+              },
+              {
+                "IntentName": "UtilLogFullPathOnServer",
+                "TypeOfSource": "String",
+                "IntentType": "Argument",
+                "RequestText": "",
+                "Result": "UtilLogFullPathOnServer",
+                "ResultForInternalProcess": "D:\\Bot\\Fourcolors\\BusinessProcessService\\Exe\\UtilityFrameWork\\utilLogFolder"
+              },
+              {
+                "IntentName": "FileUploadURL",
+                "TypeOfSource": "String",
+                "IntentType": "Argument",
+                "RequestText": "",
+                "Result": "FileUploadURL",
+                "ResultForInternalProcess": "https://businessservicebot-fourcolorstechoutlook.msappproxy.net/BotMessageProcess.svc/FileUpload"
+              },
+              {
+                "IntentName": "FolderName",
+                "TypeOfSource": "String",
+                "IntentType": "Argument",
+                "RequestText": "Enter the release folder name",
+                "Result": "FolderName",
+                "ResultForInternalProcess": ""
+              },
+              {
+                "IntentName": "ReleasedStatus",
+                "TypeOfSource": "String",
+                "IntentType": "Argument",
+                "RequestText": "Enter a valid release status name that you would like to apply",
+                "Result": "ReleasedStatus",
+                "ResultForInternalProcess": ""
+              }
+            ]
+          },
+          {
+            "IntentName": "ReleaseManUnrelease",
+            "IntentType": "Choice",
+            "RequestText": "Remove Release status",
+            "SourceNameOfCallMethod": "Exe\\java\\executeOperationWrapper.jar",
+            "TypeOfSource": "jar",
+            "CallMethodName": "----",
+            "CallType": "Async",
+            "QueueReturnMessage": "Let me get that unreleased for you. Your request number is {TrackId}",
+            "Result": "{TrackId} : {Result}",
+            "AllowedGroupsAndUsersToShowMenu": "annam@fourcolorstechoutlook.onmicrosoft.com ",
+            "AllowedGroupsAndUsersToAccess": "annam@fourcolorstechoutlook.onmicrosoft.com ",
+            "MessageForNotAllowed": "You are not authorized to access the resource",
+            "SubIntents": [
+              {
+                "IntentName": "SiteOptions",
+                "IntentType": "Argument",
+                "RequestText": "",
+                "Result": "FCT_AWS",
+                "ResultForInternalProcess": "FCT_AWS"
+              },
+              {
+                "IntentName": "IntentName",
+                "TypeOfSource": "String",
+                "IntentType": "Argument",
+                "RequestText": "",
+                "Result": "ReleaseManUnrelease",
+                "ResultForInternalProcess": "ReleaseManUnrelease"
+              },
+              {
+                "IntentName": "BatchFileFullPathOnServer",
+                "TypeOfSource": "String",
+                "IntentType": "Argument",
+                "RequestText": "",
+                "Result": "BatchFileFullPathOnServer",
+                "ResultForInternalProcess": "D:\\Bot\\Fourcolors\\BusinessProcessService\\Exe\\UtilityFrameWork\\release_man\\release_man_unrelease.bat"
+              },
+              {
+                "IntentName": "UtilLogFullPathOnServer",
+                "TypeOfSource": "String",
+                "IntentType": "Argument",
+                "RequestText": "",
+                "Result": "UtilLogFullPathOnServer",
+                "ResultForInternalProcess": "D:\\Bot\\Fourcolors\\BusinessProcessService\\Exe\\UtilityFrameWork\\utilLogFolder"
+              },
+              {
+                "IntentName": "FileUploadURL",
+                "TypeOfSource": "String",
+                "IntentType": "Argument",
+                "RequestText": "",
+                "Result": "FileUploadURL",
+                "ResultForInternalProcess": "https://businessservicebot-fourcolorstechoutlook.msappproxy.net/BotMessageProcess.svc/FileUpload"
+              },
+              {
+                "IntentName": "FolderName",
+                "TypeOfSource": "String",
+                "IntentType": "Argument",
+                "RequestText": "Enter the release folder name",
+                "Result": "FolderName",
+                "ResultForInternalProcess": ""
+              },
+              {
+                "IntentName": "ReleasedStatus",
+                "TypeOfSource": "String",
+                "IntentType": "Argument",
+                "RequestText": "Enter the release status name that you would like to remove",
+                "Result": "ReleasedStatus",
+                "ResultForInternalProcess": ""
+              }
+            ]
+          },
+          {
+            "IntentName": "CheckInItem",
+            "IntentType": "Choice",
+            "RequestText": "CheckIn Item",
+            "SourceNameOfCallMethod": "Exe\\java\\executeOperationWrapper.jar",
+            "TypeOfSource": "jar",
+            "CallMethodName": "----",
+            "CallType": "Async",
+            "QueueReturnMessage": "Get Set Go! Your request number is {TrackId}",
+            "Result": "{TrackId} : {Result}",
+            "SubIntents": [
+              {
+                "IntentName": "SiteOptions",
+                "IntentType": "Argument",
+                "RequestText": "",
+                "Result": "FCT_AWS",
+                "ResultForInternalProcess": "FCT_AWS"
+              },
+              {
+                "IntentName": "IntentName",
+                "IntentType": "Argument",
+                "TypeOfSource": "String",
+                "RequestText": "",
+                "Result": "CheckInItem",
+                "ResultForInternalProcess": "CheckInItem"
+              },
+              {
+                "IntentName": "ItemId",
+                "IntentType": "Argument",
+                "TypeOfSource": "String",
+                "RequestText": "Enter the Item ID to checkin"
+              }
+            ]
+          },
+          {
+            "IntentName": "AddToGroup",
+            "IntentType": "Choice",
+            "RequestText": "Add To Group",
+            "SourceNameOfCallMethod": "Exe\\java\\executeOperationWrapper.jar",
+            "TypeOfSource": "jar",
+            "CallMethodName": "----",
+            "AllowedGroupsAndUsersToShowMenu": "annam@fourcolorstechoutlook.onmicrosoft.com ",
+            "AllowedGroupsAndUsersToAccess": "annam@fourcolorstechoutlook.onmicrosoft.com ",
+            "CallType": "Async",
+            "AuditLog": "Yes",
+            "QueueReturnMessage": "Getting it done right away. Your request number is {TrackId}",
+            "Result": "{TrackId} : {Result}",
+
+            "MessageForNotAllowed": "You are not allowed to access this option. Please contact your system admin to provide access",
+            "SubIntents": [
+              {
+                "IntentName": "SiteOptions",
+                "IntentType": "Argument",
+                "RequestText": "Confirm sites",
+                "Options": [ "FCT_AWS", "NC", "TX", "AllSites" ]
+              },
+              {
+                "IntentName": "IntentName",
+                "TypeOfSource": "String",
+                "IntentType": "Argument",
+                "RequestText": "",
+                "Result": "AddToGroup",
+                "ResultForInternalProcess": "AddToGroup"
+              },
+              {
+                "IntentName": "UserId",
+                "IntentType": "Argument",
+                "TypeOfSource": "String",
+                "RequestText": "Can you give me the User Id ",
+                "AuditLog": "Column4"
+              },
+              {
+                "IntentName": "GroupName",
+                "IntentType": "Argument",
+                "TypeOfSource": "String",
+                "RequestText": "Can you also give me the Group Name to which you would like to add the user"
+              },
+              {
+                "IntentName": "TicketId",
+                "IntentType": "Argument",
+                "TypeOfSource": "String",
+                "RequestText": "",
+                "SendForExecution": "No",
+                "AuditLog": "Column5"
+              }
+            ]
+          },
+          {
+            "IntentName": "AddToRole",
+            "IntentType": "Choice",
+            "RequestText": "Add To Role",
+            "SourceNameOfCallMethod": "Exe\\java\\executeOperationWrapper.jar",
+            "TypeOfSource": "jar",
+            "CallMethodName": "----",
+            "CallType": "Async",
+            "QueueReturnMessage": "Hang on tight while I get that done for you. Your request number is {TrackId}",
+            "Result": "{TrackId} : {Result}",
+            "AllowedGroupsAndUsersToAccess": "annam@fourcolorstechoutlook.onmicrosoft.com",
+            "AllowedGroupsAndUsersToShowMenu": "annam@fourcolorstechoutlook.onmicrosoft.com",
+            "SubIntents": [
+              {
+                "IntentName": "SiteOptions",
+                "IntentType": "Argument",
+                "RequestText": "Confirm sites",
+                "Options": [ "FCT_AWS", "NC", "TX", "AllSites" ]
+              },
+              {
+                "IntentName": "IntentName",
+                "TypeOfSource": "String",
+                "IntentType": "Argument",
+                "RequestText": "",
+                "Result": "AddToRole",
+                "ResultForInternalProcess": "AddToRole"
+              },
+              {
+                "IntentName": "UserId",
+                "IntentType": "Argument",
+                "TypeOfSource": "String",
+                "RequestText": "Enter User Id "
+              },
+              {
+                "IntentName": "RoleName",
+                "IntentType": "Argument",
+                "TypeOfSource": "String",
+                "RequestText": "Enter Role Name"
+              },
+              {
+                "IntentName": "GroupName",
+                "IntentType": "Argument",
+                "TypeOfSource": "String",
+                "RequestText": "Enter Group Name"
+              }
+            ]
+          },
+          {
+            "IntentName": "RemoveFromGroup",
+            "IntentType": "Choice",
+            "RequestText": "Remove From Group",
+            "SourceNameOfCallMethod": "Exe\\java\\executeOperationWrapper.jar",
+            "TypeOfSource": "jar",
+            "CallMethodName": "-----",
+            "CallType": "Async",
+            "QueueReturnMessage": "Speeding to get it done for you. Your request number is {TrackId}",
+            "AllowedGroupsAndUsersToAccess": "annam@fourcolorstechoutlook.onmicrosoft.com",
+            "AllowedGroupsAndUsersToShowMenu": "annam@fourcolorstechoutlook.onmicrosoft.com",
+            "Result": "{TrackId} : {Result}",
+            "SubIntents": [
+              {
+                "IntentName": "SiteOptions",
+                "IntentType": "Argument",
+                "RequestText": "Confirm sites",
+                "Options": [ "FCT_AWS", "NC", "TX", "AllSites" ]
+              },
+              {
+                "IntentName": "IntentName",
+                "TypeOfSource": "String",
+                "IntentType": "Argument",
+                "RequestText": "",
+                "Result": "RemoveFromGroup",
+                "ResultForInternalProcess": "RemoveFromGroup"
+              },
+              {
+                "IntentName": "UserId",
+                "IntentType": "Argument",
+                "TypeOfSource": "String",
+                "RequestText": "Enter User Id "
+              },
+              {
+                "IntentName": "GroupName",
+                "IntentType": "Argument",
+                "TypeOfSource": "String",
+                "RequestText": "Enter Group Name"
+              }
+            ]
+          },
+          {
+            "IntentName": "RemoveFromRole",
+            "IntentType": "Choice",
+            "RequestText": "Remove From Role",
+            "SourceNameOfCallMethod": "Exe\\java\\executeOperationWrapper.jar",
+            "TypeOfSource": "jar",
+            "CallMethodName": "-----",
+            "CallType": "Async",
+            "AllowedGroupsAndUsersToAccess": "annam@fourcolorstechoutlook.onmicrosoft.com",
+            "AllowedGroupsAndUsersToShowMenu": "annam@fourcolorstechoutlook.onmicrosoft.com",
+            "QueueReturnMessage": "On my way to get it done for you. Your request number is {TrackId}",
+            "Result": "{TrackId} : {Result}",
+            "SubIntents": [
+              {
+                "IntentName": "SiteOptions",
+                "IntentType": "Argument",
+                "RequestText": "Confirm sites",
+                "Options": [ "FCT_AWS", "NC", "TX", "AllSites" ]
+              },
+              {
+                "IntentName": "IntentName",
+                "TypeOfSource": "String",
+                "IntentType": "Argument",
+                "RequestText": "",
+                "Result": "RemoveFromRole",
+                "ResultForInternalProcess": "RemoveFromRole"
+              },
+              {
+                "IntentName": "UserId",
+                "IntentType": "Argument",
+                "TypeOfSource": "String",
+                "RequestText": "Enter User Id "
+              },
+              {
+                "IntentName": "RoleName",
+                "IntentType": "Argument",
+                "TypeOfSource": "String",
+                "RequestText": "Enter Role Name"
+              },
+              {
+                "IntentName": "GroupName",
+                "IntentType": "Argument",
+                "TypeOfSource": "String",
+                "RequestText": "Enter Group Name"
+              }
+            ]
+          },
+          {
+            "IntentName": "UnreleaseItemRevision",
+            "IntentType": "Choice",
+            "RequestText": "Unrelease Item Revision",
+            "SourceNameOfCallMethod": "Exe\\java\\executeOperationWrapper.jar",
+            "TypeOfSource": "jar",
+            "CallMethodName": "-----",
+            "AllowedGroupsAndUsersToShowMenu": "annam@fourcolorstechoutlook.onmicrosoft.com ",
+            "AllowedGroupsAndUsersToAccess": "annam@fourcolorstechoutlook.onmicrosoft.com ",
+            "CallType": "Async",
+            "QueueReturnMessage": "Let me quickly get it done for you. Your request number is {TrackId}",
+            "Result": "{TrackId} : {Result}",
+            "SubIntents": [
+              {
+                "IntentName": "SiteOptions",
+                "IntentType": "Argument",
+                "RequestText": "",
+                "Result": "FCT_AWS",
+                "ResultForInternalProcess": "FCT_AWS"
+              },
+              {
+                "IntentName": "IntentName",
+                "IntentType": "Argument",
+                "TypeOfSource": "String",
+                "RequestText": "",
+                "Result": "UnreleaseItemRevision",
+                "ResultForInternalProcess": "UnreleaseItemRevision"
+              },
+              {
+                "IntentName": "ItemId",
+                "IntentType": "Argument",
+                "TypeOfSource": "String",
+                "RequestText": "Enter the Item ID for revision to unrelease"
+              },
+              {
+                "IntentName": "RevID",
+                "IntentType": "Argument",
+                "TypeOfSource": "String",
+                "RequestText": "Enter the Rev ID for revision to unrelease"
+              }
+            ]
+          },
+          {
+            "IntentName": "ActivateUser",
+            "IntentType": "Choice",
+            "RequestText": "Activate User",
+            "SourceNameOfCallMethod": "Exe\\java\\executeOperationWrapper.jar",
+            "TypeOfSource": "jar",
+            "CallMethodName": "-----",
+            "CallType": "Async",
+            "AllowedGroupsAndUsersToAccess": "annam@fourcolorstechoutlook.onmicrosoft.com",
+            "AllowedGroupsAndUsersToShowMenu": "annam@fourcolorstechoutlook.onmicrosoft.com",
+            "QueueReturnMessage": "Get Set Go! Your request number is {TrackId}",
+            "Result": "{TrackId} : {Result}",
+            "SubIntents": [
+              {
+                "IntentName": "SiteOptions",
+                "IntentType": "CardArgument",
+                "RequestText": "Confirm sites",
+                "TypeOfSource": "String",
+                "OptionType": "DropDown",
+                "Options": [ "FCT_AWS", "NC", "TX", "AllSites" ]
+              },
+              {
+                "IntentName": "IntentName",
+                "IntentType": "CardArgument",
+                "TypeOfSource": "String",
+                "RequestText": "",
+                "Result": "ActivateUser",
+                "ResultForInternalProcess": "ActivateUser"
+              },
+              {
+                "IntentName": "UserId",
+                "IntentType": "CardArgument",
+                "TypeOfSource": "String",
+                "RequestText": "Please enter user id that needs to be activated"
+              }
+            ]
+          },
+          {
+            "IntentName": "DeactivateUser",
+            "IntentType": "Choice",
+            "RequestText": "Deactivate User",
+            "SourceNameOfCallMethod": "Exe\\java\\executeOperationWrapper.jar",
+            "TypeOfSource": "jar",
+            "CallMethodName": "----",
+            "CallType": "Async",
+            "AllowedGroupsAndUsersToShowMenu": "Group1Test",
+            "AllowedGroupsAndUsersToAccess": "Group1Test",
+            "QueueReturnMessage": "Thanks {UserName}! Your request number is {TrackId}",
+            "Result": "{TrackId} : {Result}",
+            "SubIntents": [
+              {
+                "IntentName": "SiteOptions",
+                "IntentType": "CardArgument",
+                "OptionType": "DropDown",
+                "TypeOfSource": "String",
+                "RequestText": "Confirm sites",
+                "Options": [ "https://democogapi.azurewebsites.net/Files/TestLOV.txt" ]
+              },
+              {
+                "IntentName": "IntentName",
+                "IntentType": "CardArgument",
+                "TypeOfSource": "String",
+                "RequestText": "",
+                "Result": "DeactivateUser",
+                "ResultForInternalProcess": "DeactivateUser"
+              },
+              {
+                "IntentName": "UserId",
+                "IntentType": "CardArgument",
+                "TypeOfSource": "String",
+                "RequestText": "Please enter user id that needs to be deactivated"
+              }
+            ]
+          },
+          {
+            "IntentName": "DeactivateUserInGroup",
+            "IntentType": "Choice",
+            "RequestText": "Deactivate User In Group",
+            "SourceNameOfCallMethod": "Exe\\java\\executeOperationWrapper.jar",
+            "TypeOfSource": "jar",
+            "CallMethodName": "----",
+            "CallType": "Async",
+            "AllowedGroupsAndUsersToAccess": "annam@fourcolorstechoutlook.onmicrosoft.com",
+            "AllowedGroupsAndUsersToShowMenu": "annam@fourcolorstechoutlook.onmicrosoft.com",
+            "QueueReturnMessage": "Thanks {UserName}! Your request number is {TrackId}",
+            "Result": "{TrackId} : {Result}",
+            "SubIntents": [
+              {
+                "IntentName": "SiteOptions",
+                "IntentType": "Argument",
+                "RequestText": "Confirm sites",
+                "Options": [ "FCT_AWS", "NC", "TX", "AllSites" ]
+              },
+              {
+                "IntentName": "IntentName",
+                "IntentType": "Argument",
+                "TypeOfSource": "String",
+                "RequestText": "",
+                "Result": "DeactivateUserInGroup",
+                "ResultForInternalProcess": "DeactivateUserInGroup"
+              },
+              {
+                "IntentName": "UserId",
+                "IntentType": "Argument",
+                "TypeOfSource": "String",
+                "RequestText": "Please enter user id that needs to be deactivated"
+              },
+              {
+                "IntentName": "GroupName",
+                "IntentType": "Argument",
+                "TypeOfSource": "String",
+                "RequestText": "Please provide the group name from where you would like to deactivate the user"
+              }
+            ]
+          },
+          {
+            "IntentName": "UserStatus",
+            "IntentType": "Choice",
+            "RequestText": "Get User Status",
+            "SourceNameOfCallMethod": "Exe\\java\\executeOperationWrapper.jar",
+            "TypeOfSource": "jar",
+            "CallMethodName": "----",
+            "CallType": "Async",
+            "QueueReturnMessage": "Getting the status right away! Your request number is {TrackId}",
+            "Result": "{TrackId} : {Result}",
+            "SubIntents": [
+              {
+                "IntentName": "SiteOptions",
+                "IntentType": "Argument",
+                "RequestText": "Confirm sites",
+                "Options": [ "FCT_AWS", "NC", "TX", "AllSites" ]
+              },
+              {
+                "IntentName": "IntentName",
+                "IntentType": "Argument",
+                "TypeOfSource": "String",
+                "RequestText": "",
+                "Result": "UserStatus",
+                "ResultForInternalProcess": "UserStatus"
+              },
+              {
+                "IntentName": "UserId",
+                "IntentType": "Argument",
+                "TypeOfSource": "String",
+                "RequestText": "Please give me the user-id for which you need the status "
+              }
+            ]
+          },
+          {
+            "IntentName": "BulkActions",
+            "IntentType": "Choice",
+            "RequestText": "Bulk Actions",
+            "SubIntents": [
+              {
+                "IntentName": "UserStatusBulk",
+                "IntentType": "Choice",
+                "RequestText": "User Status Bulk",
+                "SourceNameOfCallMethod": "Exe\\java\\executeOperationWrapper.jar",
+                "TypeOfSource": "jar",
+                "CallMethodName": "----",
+                "CallType": "Async",
+                "QueueReturnMessage": "Getting the status right away! Your request number is {TrackId}",
+                "Result": "{TrackId} : {Result}",
+                "SubIntents": [
+                  {
+                    "IntentName": "SiteOptions",
+                    "IntentType": "Argument",
+                    "RequestText": "Confirm sites",
+                    "AuditLog": "Column5",
+                    "Options": [
+                      "FCT_AWS",
+                      "NC",
+                      "TX",
+                      "All"
+                    ]
+                  },
+                  {
+                    "IntentName": "IntentName",
+                    "IntentType": "Argument",
+                    "TypeOfSource": "String",
+                    "RequestText": "",
+                    "Result": "UserStatusBulk",
+                    "ResultForInternalProcess": "UserStatusBulk"
+                  },
+                  {
+                    "IntentName": "AttachmentPaths",
+                    "IntentType": "Argument",
+                    "RequestText": "Please attach input file with a list of UserId. Please add each entry on a separate line",
+                    "TypeOfSource": "Attachment"
+                  }
+
+                ]
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "IntentName": "ServiceNow",
+        "IntentType": "Choice",
+        "RequestText": "ServiceNow",
+        "SubIntents": [
+          {
+            "IntentName": "ServiceNowGetOpenIncidents",
+            "IntentType": "Choice",
+            "RequestText": "Incidents Opened for a User",
+            "SourceNameOfCallMethod": "http://IP-C6134D42:8082/BotToolsIntegration/REST/servicenow/GetAllOpenIncidentsOpenedForUser",
+            "TypeOfSource": "WebService(Post)",
+            "CallMethodName": "----",
+            "CallType": "Sync",
+            "SubIntents": [
+              {
+                "IntentName": "UserId",
+                "TypeOfSource": "String",
+                "IntentType": "Argument",
+                "RequestText": "Give me the Global ID of the user",
+                "ResultForInternalProcess": ""
+              }
+            ]
+          },
+          {
+            "IntentName": "ServiceNowGetAssignedIncidents",
+            "IntentType": "Choice",
+            "RequestText": "Incidents Assigned to a User",
+            "SourceNameOfCallMethod": "http://IP-C6134D42:8082/BotToolsIntegration/REST/servicenow/GetAllOpenIncidentsAssignedToUser",
+            "TypeOfSource": "WebService(Post)",
+            "CallMethodName": "----",
+            "CallType": "Sync",
+            "SubIntents": [
+              {
+                "IntentName": "UserId",
+                "TypeOfSource": "String",
+                "IntentType": "Argument",
+                "RequestText": "Give me the Global ID of the user",
+                "ResultForInternalProcess": ""
+              }
+            ]
+          },
+          {
+            "IntentName": "ServiceNowGetIncidentDetails",
+            "IntentType": "Choice",
+            "RequestText": "Incident Info",
+            "SourceNameOfCallMethod": "http://IP-C6134D42:8082/BotToolsIntegration/REST/servicenow/GetIncidentById",
+            "TypeOfSource": "WebService(Post)",
+            "CallMethodName": "----",
+            "CallType": "Sync",
+            "SubIntents": [
+              {
+                "IntentName": "TicketId",
+                "TypeOfSource": "String",
+                "IntentType": "Argument",
+                "RequestText": "What is the Incident Number",
+                "ResultForInternalProcess": ""
+              }
+            ]
+          },
+          {
+            "IntentName": "ServiceNowCreateIncident",
+            "IntentType": "Choice",
+            "RequestText": "Create Incident",
+            "SourceNameOfCallMethod": "http://IP-C6134D42:8082/BotToolsIntegration/REST/servicenow/CreateIncident",
+            "TypeOfSource": "WebService(Post)",
+            "CallMethodName": "----",
+            "CallType": "Sync",
+            "SubIntents": [
+              {
+                "IntentName": "UserId",
+                "TypeOfSource": "String",
+                "IntentType": "Argument",
+                "RequestText": "Give me Global ID of the user",
+                "Result": "caller",
+                "ResultForInternalProcess": ""
+              },
+              {
+                "IntentName": "ServiceNowCreateIncidentDescription",
+                "TypeOfSource": "String",
+                "IntentType": "Argument",
+                "RequestText": "Describe the issue",
+                "Result": "description",
+                "ResultForInternalProcess": ""
+              }
+            ]
+          },
+          {
+            "IntentName": "ServiceNowCloseIncident",
+            "IntentType": "Choice",
+            "RequestText": "Close Incident",
+            "SourceNameOfCallMethod": "http://IP-C6134D42:8082/BotToolsIntegration/REST/servicenow/CloseIncident",
+            "TypeOfSource": "WebService(Post)",
+            "CallMethodName": "----",
+            "CallType": "Sync",
+            "SubIntents": [
+              {
+                "IntentName": "TicketId",
+                "TypeOfSource": "String",
+                "IntentType": "Argument",
+                "RequestText": "What is the Incident Number",
+                "ResultForInternalProcess": ""
+              },
+              {
+                "IntentName": "ServiceNowCloseIncidentCode",
+                "TypeOfSource": "String",
+                "IntentType": "Argument",
+                "RequestText": "Select or enter the Resolution Code<br>e.g. Solved (Permanently), Solved (Work Around), Duplicate ticket, Information provided, Other",
+                "Result": "resolutionCode",
+                "ResultForInternalProcess": ""
+              },
+              {
+                "IntentName": "ServiceNowCloseIncidentDescription",
+                "TypeOfSource": "String",
+                "IntentType": "Argument",
+                "RequestText": "Provide the Resolution Notes in the following format:<br>Issue:<br>Root Cause:<br>Workaround if any:<br>Resolution steps:<br>Recurring Problem Ticket No:",
+                "Result": "resolutionNotes",
+                "ResultForInternalProcess": ""
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "IntentName": "NMonthReportGenerate",
+        "IntentType": "Choice",
+        "RequestText": "User Management Report",
+        "SourceNameOfCallMethod": "http://localhost:7777/BotMessageProcess.svc/GenerateAuditColorfullReport",
+        "TypeOfSource": "WebService(Post)",
+        "CallMethodName": "----",
+        "AllowedGroupsAndUsersToAccess": "annam@fourcolorstechoutlook.onmicrosoft.com",
+        "AllowedGroupsAndUsersToShowMenu": "annam@fourcolorstechoutlook.onmicrosoft.com",
+        "ResultType": "Link",
+        "CallType": "Sync",
+        "SubIntents": [
+          {
+            "IntentName": "Number",
+            "IntentType": "Argument",
+            "RequestText": "Report for last N months",
+            "Options": [ "3", "6", "12" ]
+          },
+          {
+            "IntentName": "TodayDateMinus",
+            "IntentType": "Argument",
+            "Result": "({Today})-{Number} Month",
+            "ResultType": "DateTime",
+            "ResultForInternalProcess": "({Today})-{Number} Month"
+          },
+          {
+            "IntentName": "QueryString",
+            "IntentType": "Argument",
+            "Result": "Success",
+            "ResultForInternalProcess": " (Timestamp ge datetime'{TodayDateMinus}') and (Timestamp le datetime'{Today}')"
+          },
+          {
+            "IntentName": "DisplayFields",
+            "IntentType": "Argument",
+            "Result": "Success",
+            "ResultForInternalProcess": "IntentName,Performer,Performed,Column4,Column5"
+          },
+          {
+            "IntentName": "ReplaceColumnDetailURL",
+            "IntentType": "Argument",
+            "Result": "Success",
+            "ResultForInternalProcess": "https://businessservicebot-fourcolorstechoutlook.msappproxy.net/Template/ReportColumnNames.csv"
+          }
+        ]
+      },
+      {
+        "IntentName": "Report",
+        "IntentType": "Choice",
+        "RequestText": "Teamcenter Reports",
+        "SubIntents": [
+          {
+            "IntentName": "BOMReport",
+            "RequestText": "bom report",
+            "IntentType": "ThumbnailCardChoice",
+            "ImageURL": "https://businessservicebot-fourcolorstechoutlook.msappproxy.net/Files/ReportImages/BOMReportImage.png",
+            "Title": "Teamcenter BOM Report",
+            "SubTitle": "Create a BOM report for an ItemId & Revision. Inputs can be configurable.",
+            "SourceNameOfCallMethod": "Exe\\java\\executeOperationWrapper.jar",
+            "TypeOfSource": "jar",
+            "CallMethodName": "----",
+            "CallType": "Async",
+            "QueueReturnMessage": "Thanks {UserName}! I will get back to as quick as I can. Request number is {TrackId}",
+            "Result": "{TrackId} : {Result}",
+            "ResultType": "",
+            "NextIntent": [],
+            "SubIntents": [
+              {
+                "IntentName": "SiteOptions",
+                "IntentType": "Argument",
+                "RequestText": "Confirm sites",
+                "Options": [ "FCT_AWS", "NC", "TX", "AllSites" ]
+              },
+              {
+                "IntentName": "IntentName",
+                "TypeOfSource": "String",
+                "IntentType": "Argument",
+                "RequestText": "",
+                "Result": "BOMReport",
+                "ResultForInternalProcess": "BOMReport"
+              },
+              {
+                "IntentName": "BOMReportCode",
+                "TypeOfSource": "String",
+                "IntentType": "Argument",
+                "RequestText": "",
+                "Result": "BOMReportCode",
+                "ResultForInternalProcess": "2"
+              },
+              {
+                "IntentName": "OutPathWithWebServerUrl",
+                "TypeOfSource": "String",
+                "IntentType": "Argument",
+                "RequestText": "",
+                "Result": "OutPathWithWebServerUrl",
+                "ResultForInternalProcess": "https://businessservicebot-fourcolorstechoutlook.msappproxy.net/Files/Output/"
+              },
+              {
+                "IntentName": "DefFilePath",
+                "TypeOfSource": "String",
+                "IntentType": "Argument",
+                "RequestText": "",
+                "Result": "DefFilePath",
+                "ResultForInternalProcess": "D:\\invokeSOAwrapper\\customlibs\\bomExtract_Adient\\input\\COGdefinitions.def"
+              },
+              {
+                "IntentName": "ItemId",
+                "TypeOfSource": "String",
+                "IntentType": "Argument",
+                "RequestText": "Please enter a Item Id "
+              },
+              {
+                "IntentName": "RevisionId",
+                "TypeOfSource": "String",
+                "IntentType": "Argument",
+                "RequestText": "Please enter a Revision Id "
+              }
+            ]
+          },
+          {
+            "IntentName": "TCPartReport",
+            "RequestText": "Teamcenter Part Report",
+            "IntentType": "ThumbnailCardChoice",
+            "ImageURL": "https://businessservicebot-fourcolorstechoutlook.msappproxy.net/Files/ReportImages/TCPartReportImage2.png",
+            "Title": "Teamcenter Part Report",
+            "SubTitle": "Create a Part report for an ItemId & Revision. Inputs can be configurable.",
+            "SourceNameOfCallMethod": "Exe\\java\\executeOperationWrapper.jar",
+            "TypeOfSource": "jar",
+            "CallMethodName": "----",
+            "ResultType": "",
+            "CallType": "Async",
+            "QueueReturnMessage": "Thanks {UserName}! I will get back to you shortly. Request number is {TrackId}",
+            "Result": "{TrackId} : {Result}",
+            "NextIntent": [],
+            "SubIntents": [
+              {
+                "IntentName": "SiteOptions",
+                "IntentType": "Argument",
+                "RequestText": "Confirm sites",
+                "Options": [ "FCT_AWS", "NC", "TX", "AllSites" ]
+              },
+              {
+                "IntentName": "IntentName",
+                "TypeOfSource": "String",
+                "IntentType": "Argument",
+                "RequestText": "",
+                "Result": "TCPartReport",
+                "ResultForInternalProcess": "TCPartReport"
+              },
+              {
+                "IntentName": "TCPartReportCode",
+                "TypeOfSource": "String",
+                "IntentType": "Argument",
+                "RequestText": "",
+                "Result": "TCPartReport",
+                "ResultForInternalProcess": "1"
+              },
+              {
+                "IntentName": "OutPathWithWebServerUrl",
+                "TypeOfSource": "String",
+                "IntentType": "Argument",
+                "RequestText": "",
+                "Result": "OutPathWithWebServerUrl",
+                "ResultForInternalProcess": "https://businessservicebot-fourcolorstechoutlook.msappproxy.net/Files/Output/"
+              },
+              {
+                "IntentName": "DefFilePath",
+                "TypeOfSource": "String",
+                "IntentType": "Argument",
+                "RequestText": "",
+                "Result": "DefFilePath",
+                "ResultForInternalProcess": "D:\\invokeSOAwrapper\\customlibs\\reportGenerator\\input\\definitions.def"
+              },
+              {
+                "IntentName": "ItemId",
+                "TypeOfSource": "String",
+                "IntentType": "Argument",
+                "RequestText": "Please enter a Item Id "
+              },
+              {
+                "IntentName": "RevisionId",
+                "TypeOfSource": "String",
+                "IntentType": "Argument",
+                "RequestText": "Please enter a Revision Id "
+              }
+            ]
+          },
+          {
+            "IntentName": "BOMTestReport",
+            "RequestText": "BOM Test Report",
+            "IntentType": "ThumbnailCardChoice",
+            "ImageURL": "https://businessservicebot-fourcolorstechoutlook.msappproxy.net/Files/ReportImages/BOMReportImage.png",
+            "Title": "Teamcenter BOM Report",
+            "SubTitle": "Create a BOM report for an ItemId & Revision. Inputs can be configurable.",
+            "SourceNameOfCallMethod": "Exe\\java\\executeOperationWrapper.jar",
+            "TypeOfSource": "jar",
+            "CallMethodName": "----",
+            "CallType": "Async",
+            "QueueReturnMessage": "Thanks {UserName}! I will get back to as quick as I can. Request number is {TrackId}",
+            "Result": "{TrackId} : {Result}",
+            "ResultType": "",
+            "NextIntent": [],
+            "SubIntents": [
+              {
+                "IntentName": "SiteOptions",
+                "IntentType": "Argument",
+                "RequestText": "Confirm sites",
+                "Options": [ "FCT_AWS", "NC", "TX", "AllSites" ]
+              },
+              {
+                "IntentName": "IntentName",
+                "TypeOfSource": "String",
+                "IntentType": "Argument",
+                "RequestText": "",
+                "Result": "BOMTestReport",
+                "ResultForInternalProcess": "BOMTestReport"
+              },
+              {
+                "IntentName": "LibraryName",
+                "TypeOfSource": "String",
+                "IntentType": "Argument",
+                "RequestText": "",
+                "Result": "LibraryName",
+                "ResultForInternalProcess": "D:\\Temp\\fct_newbomextracttool.dll"
+              },
+              {
+                "IntentName": "LibraryFunctionName",
+                "TypeOfSource": "String",
+                "IntentType": "Argument",
+                "RequestText": "",
+                "Result": "LibraryFunctionName",
+                "ResultForInternalProcess": "FCT_reports_from_dll"
+              },
+              {
+                "IntentName": "BOMReportCode",
+                "TypeOfSource": "String",
+                "IntentType": "Argument",
+                "RequestText": "",
+                "Result": "BOMReportCode",
+                "ResultForInternalProcess": "2"
+              },
+              {
+                "IntentName": "OutPathWithWebServerUrl",
+                "TypeOfSource": "String",
+                "IntentType": "Argument",
+                "RequestText": "",
+                "Result": "OutPathWithWebServerUrl",
+                "ResultForInternalProcess": "https://businessservicebot-fourcolorstechoutlook.msappproxy.net/Files/Output/"
+              },
+              {
+                "IntentName": "DefFilePath",
+                "TypeOfSource": "String",
+                "IntentType": "Argument",
+                "RequestText": "",
+                "Result": "DefFilePath",
+                "ResultForInternalProcess": "D:\\invokeSOAwrapper\\customlibs\\bomExtract_Adient\\input\\COGdefinitions.def"
+              },
+              {
+                "IntentName": "ItemId",
+                "TypeOfSource": "String",
+                "IntentType": "Argument",
+                "RequestText": "Please enter a Item Id "
+              },
+              {
+                "IntentName": "RevisionId",
+                "TypeOfSource": "String",
+                "IntentType": "Argument",
+                "RequestText": "Please enter a Revision Id "
+              }
+            ]
+          },
+          {
+            "IntentName": "Back",
+            "RequestText": "Back",
+            "IntentType": "Choice",
+            "NextIntent": [
+              {
+                "Condition": "",
+                "Name": "Task"
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "IntentName": "UnabletoLoginTC",
+        "IntentType": "Choice",
+        "RequestText": "Need help logging in to TC",
+        "SourceNameOfCallMethod": "http://IP-C6134D42:8082/BotToolsIntegration/REST/teamcenter/UserStatusSOA",
+        "TypeOfSource": "WebService(Post)",
+        "CallMethodName": "----",
+        "CallType": "Sync",
+        "ResultType": "ProcessJSON",
+        "SubIntents": [
+          {
+            "IntentName": "ChannelName",
+            "IntentType": "Argument",
+            "TypeOfSource": "String",
+            "RequestText": "",
+            "Result": "{ChannelName}",
+            "ResultForInternalProcess": "{ChannelName}"
+          },
+          {
+            "IntentName": "LoggedInUserName",
+            "IntentType": "Argument",
+            "TypeOfSource": "String",
+            "RequestText": "",
+            "Result": "{UserName}",
+            "ResultForInternalProcess": "{UserName}"
+          },
+          {
+            "IntentName": "LoggedInUserId",
+            "IntentType": "Argument",
+            "TypeOfSource": "String",
+            "RequestText": "",
+            "Result": "{UserId}",
+            "ResultForInternalProcess": "{UserId}"
+          },
+          {
+            "IntentName": "RandomLegacyNumber",
+            "IntentType": "Argument",
+            "TypeOfSource": "String",
+            "RequestText": "",
+            "Result": "",
+            "ResultForInternalProcess": "10001"
+          },
+          {
+            "IntentName": "SiteOptions",
+            "IntentType": "Argument",
+            "RequestText": "Is this for a particular site or all sites ?",
+            "AuditLog": "Column5",
+            "Options": [
+              "FCT_AWS",
+              "TX",
+              "All"
+            ]
+          },
+          {
+            "IntentName": "IntentName",
+            "IntentType": "Argument",
+            "TypeOfSource": "String",
+            "RequestText": "",
+            "Result": "UserStatusSOA",
+            "ResultForInternalProcess": "UserStatusSOA"
+          },
+          {
+            "IntentName": "UserId",
+            "IntentType": "Argument",
+            "TypeOfSource": "String",
+            "RequestText": "Please give me the user id that is being used for Teamcenter login",
+            "AuditLog": "Column7"
+          }
+        ]
+      },
+      {
+        "IntentName": "TestCard",
+        "RequestText": "",
+        "IntentType": "",
+        "Result": "TestCard Result",
+        "SubIntents": [
+          {
+            "IntentName": "TicketId",
+            "TypeOfSource": "String",
+            "IntentType": "CardArgument",
+            "RequestText": "What is the ServiceNow ticket number for this operation?",
+            "PlaceHolder": "Ticket ID",
+            "ResultForInternalProcess": ""
+          },
+          {
+            "IntentName": "uou",
+            "TypeOfSource": "String",
+            "IntentType": "CardArgument",
+            "RequestText": "User Orginal Utterance",
+            "ResultForInternalProcess": "{UserOriginalUtterance}",
+            "Result": "{UserOriginalUtterance}"
+          },
+          {
+            "IntentName": "ucu",
+            "TypeOfSource": "String",
+            "IntentType": "CardArgument",
+            "RequestText": "User Changed Utterance",
+            "ResultForInternalProcess": "{UserUtterance}",
+            "Result": "{UserUtterance}"
+          },
+          {
+            "IntentName": "TickeDesc",
+            "TypeOfSource": "String",
+            "IntentType": "CardArgument",
+            "RequestText": "What is the ServiceNow ticket description for this operation?",
+            "ResultForInternalProcess": "",
+            "Min": "5",
+            "IsOptional": true
+          }
+        ],
+        "NextIntent": [
+          {
+            "Condition": "",
+            "Name": "TestCard1"
+          }
+
+        ]
+      },
+      {
+        "IntentName": "TestCard1",
+        "RequestText": "",
+        "IntentType": "",
+        "Result": "TestCard1 Result",
+        "FormLabelPosition": "Side",
+        "SubIntents": [
+          {
+            "IntentName": "uou111",
+            "TypeOfSource": "String",
+            "IntentType": "CardArgument",
+            "RequestText": "User Orginal Utterance",
+            "ResultForInternalProcess": "{UserOriginalUtterance}",
+            "Result": "{UserOriginalUtterance}"
+          },
+          {
+            "IntentName": "TicketId",
+            "TypeOfSource": "String",
+            "IntentType": "CardArgument",
+            "IsEditable": false,
+            "RequestText": "What is the ServiceNow ticket number for this operation?",
+            "ResultForInternalProcess": ""
+          },
+
+          {
+            "IntentName": "TicketName",
+            "TypeOfSource": "String",
+            "IntentType": "CardArgument",
+            "RequestText": "What is the ServiceNow ticket name for this operation?",
+            "ResultForInternalProcess": ""
+          }
+        ]
+      }
+
+    ]
+  }
+]

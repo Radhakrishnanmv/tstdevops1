@@ -1,0 +1,27 @@
+<html>
+<body>
+    <form id="sso-form" action="https://login.windows.net/21f195bc-13e5-4339-82ea-ef8b8ecdd0a9/oauth2/authorize" method="get">
+        <input type="hidden" name="client_id" value="ba8807d4-5470-4f02-921d-b7aeec3106b9" />
+        <input type="hidden" name="response_mode" value="form_post" />
+        <input type="hidden" name="response_type" value="code id_token" />
+        <input type="hidden" name="resource" value="https://graph.microsoft.com" />
+        <input type="hidden" id="inpstate" name="state" value="" />
+        <input type="hidden" name="scope" value="openid" />
+        <input type="hidden" name="nonce" value="AB7225AE13980682886B2FEF804F8F0B5D2974" />
+        <input id="inpredirect" type="hidden" name="redirect_uri" value="https://adientdevpdlbot.azurewebsites.net/callback" />
+        <input type="hidden" name="domain_hint" value="adient.onmicrosoft.com" />
+        <input type="hidden" name="wsucxt" value="1" />
+        <input type="hidden" name="cobrandid" value="11bd8083-87e0-41b5-bb78-0bc43c8a8e8a" />
+        <input type="hidden" name="client-request-id" value="1a66e2e1-7ab5-4797-9579-1b63a18452cd" />
+    </form>
+    <script>
+        var urlParams = new URLSearchParams(window.location.search);
+		var data="";
+        if (urlParams.has('conversationRef')) {
+            var conversationRef = urlParams.get('conversationRef');
+            document.getElementById('inpstate').value = conversationRef;
+        }
+        document.getElementById('sso-form').submit();
+    </script>
+</body>
+</html>

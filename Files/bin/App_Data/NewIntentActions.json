@@ -1,0 +1,809 @@
+[
+  {
+    "IntentName": "Emoji",
+    "RequestText": "",
+    "IntentType": "",
+    "Result": "\\U0001F600"
+  },
+  {
+    "IntentName": "NotAuthorised",
+    "RequestText": "",
+    "IntentType": "",
+    "Result": "Sorry, You are not authorized to access {BotName}."
+  },
+  {
+    "IntentName": "Default",
+    "RequestText": "",
+    "IntentType": "",
+    "Result": "Sorry, I could not understand you."
+  },
+  {
+    "IntentName": "None",
+    "RequestText": "",
+    "IntentType": "",
+    "Result": "Sorry, I do not understand you. "
+  },
+  {
+    "IntentName": "Error",
+    "RequestText": "",
+    "IntentType": "",
+    "Result": "Sorry, {Result}"
+  },
+  {
+    "IntentName": "Welcome",
+    "RequestText": "",
+    "IntentType": "",
+    "Result": "Welcome {UserName} I am {BotName}. How may I help you today ?"
+  },
+  {
+    "IntentName": "Exit",
+    "RequestText": "",
+    "IntentType": "",
+    "Result": "OK, How may I help you ?"
+  },
+  {
+    "IntentName": "KnowledgeBase",
+    "SourceNameOfCallMethod": "KBCall",
+    "TypeOfSource": "",
+    "CallMethodName": "",
+    "CallType": "Sync",
+    "ResultType": "",
+    "NextIntent": [],
+    "SubIntents": [
+      {
+        "IntentName": "searchTerm",
+        "TypeOfSource": "String",
+        "IntentType": "Argument",
+        "RequestText": "Which text you want to search on KB",
+        "Result": "{UserUtterance}",
+        "ResultForInternalProcess": "{UserUtterance}"
+      },
+      {
+        "IntentName": "user",
+        "TypeOfSource": "String",
+        "IntentType": "Argument",
+        "RequestText": "",
+        "Result": "{UserName}",
+        "ResultForInternalProcess": "{UserName}"
+      },
+      {
+        "IntentName": "group",
+        "TypeOfSource": "String",
+        "IntentType": "Argument",
+        "Result": "TestGroup",
+        "ResultForInternalProcess": "TestGroup"
+      }
+    ]
+  },
+  {
+    "IntentName": "Intro",
+    "RequestText": "",
+    "IntentType": "",
+    "Result": "Hey {UserName} ! How can I help you for the day? : [ListUsersOutput](http://fourcolorsbusinessservice-adientcog.msappproxy.net/Documents/txt/listusers_annam@fourcolorstechoutlook.onmicrosoft.com_03_21_2019_09_41_59.txt)"
+  },
+  {
+    "IntentName": "UpdateIntentJSONInMemory",
+    "RequestText": "",
+    "IntentType": "",
+    "QueueReturnMessage": "Intent refresh successful. Security refresh in process",
+    "SourceNameOfCallMethod": "Exe\\BotUserContextDataUpdater\\MVFC.Bot.BotUserDataUpdater.exe",
+    "CallMethodName": "----",
+    "TypeOfSource": "Exe",
+    "CallType": "Async",
+    "Result": "Security refresh successful (yes) "
+  },
+  {
+    "IntentName": "SIGNIN",
+    "RequestText": "",
+    "IntentType": "",
+    "Result": "You logged in"
+  },
+  {
+    "IntentName": "InvestigationAboutBot",
+    "RequestText": "",
+    "IntentType": "",
+    "Result": "Good. How are you doing?",
+    "NextIntent": [
+      {
+        "Condition": "",
+        "Name": "Task"
+      }
+    ]
+  },
+  {
+    "IntentName": "InvestigationAboutBotPositiveResult",
+    "RequestText": "",
+    "IntentType": "",
+    "Result": "Good, How may I help you today?"
+  },
+  {
+    "IntentName": "InvestigationAboutBotNegativeResult",
+    "RequestText": "",
+    "IntentType": "",
+    "Result": "Sad to hear. Well, is there something I can do for you ?",
+    "NextIntent": [
+      {
+        "Condition": "",
+        "Name": "Task"
+      }
+    ]
+  },
+  {
+    "IntentName": "Bye",
+    "RequestText": "",
+    "IntentType": "",
+    "Result": "Bye Bye "
+  },
+  {
+    "IntentName": "Introduction",
+    "RequestText": "",
+    "IntentType": "",
+    "Result": " I am {BotName}.  I can be integrated with a any of your Enterprise Applications and provide you with the right tools to improve efficiency. I can serve as a personal assistant and store and provide information as needed."
+  },
+  {
+    "IntentName": "Age",
+    "RequestText": "",
+    "IntentType": "",
+    "Result": "<b>I am two years old</b>"
+  },
+  {
+    "IntentName": "Live",
+    "RequestText": "",
+    "IntentType": "",
+    "Result": "Well.. In the Ethernet world (smile)"
+  },
+  {
+    "IntentName": "ExampleImproveEfficiency",
+    "RequestText": "",
+    "IntentType": "",
+    "Result": " Sure.. Take a look at this video. <a href='https://fourcolorsbusinessservice-adientcog.msappproxy.net/Files/OtherDocuments/ConfigurationManager_Story.flv'>Video</a>"
+  },
+  {
+    "IntentName": "Architecture",
+    "RequestText": "",
+    "IntentType": "",
+    "Result": "I am built on Microsoft BOT Framework and currently use LUIS for Natural Language Processing. I can be deployed on the cloud or locally."
+  },
+  {
+    "IntentName": "Security",
+    "RequestText": "",
+    "IntentType": "",
+    "Result": "I am currently guarded by the Active Directory Security for users, groups. I am also in process of getting equipped with a OTP and Static Pin (key)"
+  },
+  {
+    "IntentName": "ConditionBasedFlow",
+    "RequestText": "",
+    "IntentType": "",
+    "Result": "Yes",
+    "NextIntent": [
+      {
+        "Condition": "'Yes'='{Result}'",
+        "Name": "Task"
+      },
+      {
+        "Condition": "'No'='{Result}'",
+        "Name": "CallReportMultiIntent"
+      }
+    ]
+  },
+  {
+    "IntentName": "Task",
+    "IntentType": "",
+    "RequestText": "What would you like to do",
+    "ValidateMessage": "Please select any of the below tasks.",
+    "SubIntents": [
+
+
+      {
+        "IntentName": "Information",
+        "IntentType": "Choice",
+        "RequestText": "Find Information",
+        "SourceNameOfCallMethod": "KBCall",
+        "TypeOfSource": "",
+        "CallMethodName": "",
+        "CallType": "Sync",
+        "ResultType": ""
+      },
+
+
+      {
+        "IntentName": "TeamcenterAdmin",
+        "IntentType": "Choice",
+        "RequestText": "Teamcenter Admin",
+        "SubIntents": [
+
+          {
+            "IntentName": "DownloadFile",
+            "IntentType": "Choice",
+            "RequestText": "Download File",
+            "SourceNameOfCallMethod": "http://localhost:8080/BotMessageProcess.svc/FileDownload",
+            "TypeOfSource": "WebService(Get)",
+            "CallMethodName": "----",
+            "CallType": "Sync",
+            "ResultType": "Link",
+            "SubIntents": [
+              {
+                "IntentName": "relativefilepath",
+                "IntentType": "Argument",
+                "RequestText": "File Name"
+              }
+            ]
+          },
+
+
+              {
+                "IntentName": "CallReport",
+                "IntentType": "Choice",
+                "RequestText": "Call Resport",
+                "SourceNameOfCallMethod": "http://localhost:8080/BotMessageProcess.svc/GenerateAuditReport",
+                "TypeOfSource": "WebService(Post)",
+                "CallMethodName": "----",
+                "CallType": "Sync",
+                "SubIntents": [
+                  {
+                    "IntentName": "Performer",
+                    "IntentType": "Argument",
+                    "RequestText": "Performer"
+                  },
+                  {
+                    "IntentName": "TodayDate",
+                    "IntentType": "Argument",
+                    "Result": "{Today}",
+                    "ResultForInternalProcess": "{Today}"
+                  },
+                  {
+                    "IntentName": "TodayDateMinus",
+                    "IntentType": "Argument",
+                    "Result": "{Today}",
+                    "ResultForInternalProcess": "({Today})-7 Day"
+                  },
+                  {
+                    "IntentName": "QueryString",
+                    "IntentType": "Argument",
+                    "Result": "Success",
+                    "ResultForInternalProcess": "(Performer eq '{Performer}') and (Timestamp le datetime'{TodayDateMinus}T00:00:00.0000000Z')"
+                  },
+                  {
+                    "IntentName": "DisplayFields",
+                    "IntentType": "Argument",
+                    "Result": "Success",
+                    "ResultForInternalProcess": "IntentName,Performer,Performed,Column4,Column5"
+                  }
+                ]
+              },
+              {
+                "IntentName": "CallReport11",
+                "IntentType": "Choice",
+                "RequestText": "Time Frame Report",
+                "SourceNameOfCallMethod": "http://localhost:8080/BotMessageProcess.svc/GenerateAuditReport",
+                "TypeOfSource": "WebService(Post)",
+                "CallMethodName": "----",
+                "CallType": "Sync",
+                "SubIntents": [
+                  {
+                    "IntentName": "Performer",
+                    "IntentType": "Argument",
+                    "RequestText": "Performer"
+                  },
+                  {
+                    "IntentName": "FromDate",
+                    "IntentType": "Argument",
+                    "RequestText": "From Date",
+                    "TypeOfSource": "DateTime"
+                  },
+                  {
+                    "IntentName": "ToDate",
+                    "RequestText": "To Date",
+                    "IntentType": "Argument",
+                    "TypeOfSource": "DateTime"
+                  },
+                  {
+                    "IntentName": "QueryString",
+                    "IntentType": "Argument",
+                    "Result": "Success",
+                    "ResultForInternalProcess": "(Performer eq '{Performer}') and (Timestamp ge datetime'{FromDate}') and (Timestamp le datetime'{ToDate}')"
+                  },
+                  {
+                    "IntentName": "DisplayFields",
+                    "IntentType": "Argument",
+                    "Result": "Success",
+                    "ResultForInternalProcess": "IntentName,Performer,Performed,Column4,Column5"
+                  }
+                ]
+              },
+              {
+                "IntentName": "CallReportMultiIntent",
+                "IntentType": "Choice",
+                "RequestText": "MultiIntent Report",
+                "SourceNameOfCallMethod": "http://localhost:8080/BotMessageProcess.svc/GenerateAuditReport",
+                "TypeOfSource": "WebService(Post)",
+                "CallMethodName": "----",
+                "CallType": "Sync",
+                "SubIntents": [
+                  {
+                    "IntentName": "IntentName1",
+                    "IntentType": "Argument",
+                    "RequestText": "Intent Name 1"
+                  },
+                  {
+                    "IntentName": "IntentName2",
+                    "IntentType": "Argument",
+                    "RequestText": "Intent Name 2"
+                  },
+                  {
+                    "IntentName": "QueryString",
+                    "IntentType": "Argument",
+                    "Result": "Success",
+                    "ResultForInternalProcess": "((intentname eq '{IntentName1}') or (intentname eq '{IntentName2}'))"
+
+
+                  },
+                  {
+                    "IntentName": "DisplayFields",
+                    "IntentType": "Argument",
+                    "Result": "Success",
+                    "ResultForInternalProcess": "IntentName,Performer,Performed,Column4,Column5"
+                  }
+                ]
+              },
+              {
+                "IntentName": "AddToGroupRole",
+                "IntentType": "Choice",
+                "RequestText": "Add User To Group Role",
+                "SourceNameOfCallMethod": "Exe\\java\\executeOperationWrapper.jar",
+                "TypeOfSource": "jar",
+                "CallMethodName": "----",
+                "CallType": "Async",
+                "AuditLog": "Yes",
+                "QueueReturnMessage": "Hang on tight while I get that done for you. Your request number is {TrackId}",
+                "Result": "{TrackId} : {Result}",
+                "GroupsToShowMenu": "anerlea1@adient.com",
+                "AllowedGroupsAndUsersToAccess": "anerlea1@adient.com",
+                "MessageForNotAllowed": "You are not authorized to access the resource",
+                "SubIntents": [
+                  {
+                    "IntentName": "SiteOptions",
+                    "IntentType": "Argument",
+                    "RequestText": "Confirm sites",
+                    "Options": [ "BUR-QTEST", "YFAS-QTEST", "All" ]
+                  },
+                  {
+                    "IntentName": "IntentName",
+                    "TypeOfSource": "String",
+                    "IntentType": "Argument",
+                    "RequestText": "",
+                    "Result": "AddToGroupRole",
+                    "ResultForInternalProcess": "AddToGroupRole"
+                  },
+                  {
+                    "IntentName": "UserId",
+                    "IntentType": "Argument",
+                    "TypeOfSource": "String",
+                    "RequestText": "Please give me the User Id that you would like to add "
+                  },
+                  {
+                    "IntentName": "RoleName",
+                    "IntentType": "Argument",
+                    "TypeOfSource": "String",
+                    "AuditLog": "Yes",
+                    "RequestText": "Please give me the Role Name to which the user should be added"
+                  },
+                  {
+                    "IntentName": "GroupName1",
+                    "IntentType": "Argument",
+                    "TypeOfSource": "String",
+                    "SendForExecution": "No",
+                    "RequestText": "Please give me the Group Name to which the user should be added"
+                  },
+
+                  {
+                    "IntentName": "GroupName",
+                    "IntentType": "Argument",
+                    "TypeOfSource": "String",
+                    "AuditLog": "NewColumn",
+                    "RequestText": "Please give me the Group Name to which the user should be added"
+                  },
+                  {
+                    "IntentName": "GroupName2",
+                    "IntentType": "Argument",
+                    "TypeOfSource": "String",
+                    "SendForExecution": "No",
+                    "RequestText": "Please give me the Group Name to which the user should be added"
+                  }
+                ]
+              },
+              {
+                "IntentName": "ActivateUserGiveInfo",
+                "IntentType": "Choice",
+                "RequestText": "Activate User",
+                "SourceNameOfCallMethod": "Exe\\java\\executeOperationWrapper.jar",
+                "TypeOfSource": "jar",
+                "CallMethodName": "-----",
+                "CallType": "Async",
+                "QueueReturnMessage": "Get Set Go! Your request number is {TrackId}",
+                "Result": "{TrackId} : {Result}",
+                "Result": "",
+                "AllowedGroupsAndUsersToAccess": "",
+                "MessageForNotAllowed": "You are not authorized to access the resource",
+                "SubIntents": [
+                  {
+                    "IntentName": "SiteOptions",
+                    "IntentType": "Argument",
+                    "RequestText": "Confirm sites",
+                    "SubIntents": [
+                      {
+                        "IntentName": "SiteOptions",
+                        "IntentType": "Argument",
+                        "RequestText": "Confirm sites",
+                        "Options": [ "BUR-QTEST", "YFAS-QTEST", "All" ]
+                      }
+                    ]
+                  },
+                  {
+                    "IntentName": "IntentName",
+                    "IntentType": "Argument",
+                    "TypeOfSource": "String",
+                    "RequestText": "",
+                    "Result": "ActivateUserGiveInfo",
+                    "ResultForInternalProcess": "ActivateUserGiveInfo"
+                  },
+                  {
+                    "IntentName": "UserId",
+                    "IntentType": "Argument",
+                    "TypeOfSource": "String",
+                    "RequestText": "Please give me the user id that you would like to activate"
+                  }
+                ]
+              },
+              {
+                "IntentName": "DeactivateUserGiveInfo",
+                "IntentType": "Choice",
+                "RequestText": "Deactivate User",
+                "SourceNameOfCallMethod": "Exe\\java\\executeOperationWrapper.jar",
+                "TypeOfSource": "jar",
+                "CallMethodName": "----",
+                "CallType": "Async",
+                "QueueReturnMessage": "Thanks {UserName}! Your request number is {TrackId}",
+                "Result": "{TrackId} : {Result}",
+                "SubIntents": [
+                  {
+                    "IntentName": "SiteOptions",
+                    "IntentType": "Argument",
+                    "RequestText": "Confirm sites",
+                    "Options": [ "BUR-QTEST", "YFAS-QTEST", "All" ]
+                  },
+                  {
+                    "IntentName": "IntentName",
+                    "IntentType": "Argument",
+                    "TypeOfSource": "String",
+                    "RequestText": "",
+                    "Result": "DeactivateUserGiveInfo",
+                    "ResultForInternalProcess": "DeactivateUserGiveInfo"
+                  },
+                  {
+                    "IntentName": "UserId",
+                    "IntentType": "Argument",
+                    "TypeOfSource": "String",
+                    "RequestText": "Please enter user id that needs to be deactivated"
+                  }
+                ]
+              },
+              {
+                "IntentName": "DeactivateUserInGroup",
+                "IntentType": "Choice",
+                "RequestText": "Deactivate User In Group",
+                "SourceNameOfCallMethod": "Exe\\java\\executeOperationWrapper.jar",
+                "TypeOfSource": "jar",
+                "CallMethodName": "----",
+                "CallType": "Async",
+                "QueueReturnMessage": "Thanks {UserName}! Your request number is {TrackId}",
+                "Result": "{TrackId} : {Result}",
+                "SubIntents": [
+                  {
+                    "IntentName": "SiteOptions",
+                    "IntentType": "Argument",
+                    "RequestText": "Confirm sites",
+                    "Options": [ "FCT_AWS", "NC", "TX", "AllSites" ]
+                  },
+                  {
+                    "IntentName": "IntentName",
+                    "IntentType": "Argument",
+                    "TypeOfSource": "String",
+                    "RequestText": "",
+                    "Result": "DeactivateUserInGroup",
+                    "ResultForInternalProcess": "DeactivateUserInGroup"
+                  },
+                  {
+                    "IntentName": "UserId",
+                    "IntentType": "Argument",
+                    "TypeOfSource": "String",
+                    "RequestText": "Please enter user id that needs to be deactivated"
+                  },
+                  {
+                    "IntentName": "GroupName",
+                    "IntentType": "Argument",
+                    "TypeOfSource": "String",
+                    "RequestText": "Please provide the group name from where you would like to deactivate the user"
+                  }
+                ]
+              },
+              {
+                "IntentName": "UserStatus",
+                "IntentType": "Choice",
+                "RequestText": "User Status",
+                "SourceNameOfCallMethod": "Exe\\java\\executeOperationWrapper.jar",
+                "TypeOfSource": "jar",
+                "CallMethodName": "----",
+                "CallType": "Async",
+                "QueueReturnMessage": "Getting the status right away! Your request number is {TrackId}",
+                "Result": "{TrackId} : {Result}",
+                "SubIntents": [
+                  {
+                    "IntentName": "SiteOptions",
+                    "IntentType": "Argument",
+                    "RequestText": "Confirm sites",
+                    "Options": [ "BUR-QTEST", "YFAS-QTEST", "All" ]
+                  },
+                  {
+                    "IntentName": "IntentName",
+                    "IntentType": "Argument",
+                    "TypeOfSource": "String",
+                    "RequestText": "",
+                    "Result": "UserStatus",
+                    "ResultForInternalProcess": "UserStatus"
+                  },
+                  {
+                    "IntentName": "UserId",
+                    "IntentType": "Argument",
+                    "TypeOfSource": "String",
+                    "RequestText": "Please give me a user id for which you need the status "
+                  }
+                ]
+              },
+              {
+                "IntentName": "WorkflowStatus",
+                "IntentType": "Choice",
+                "RequestText": "Workflow Status",
+                "SourceNameOfCallMethod": "Exe\\java\\executeOperationWrapper.jar",
+                "TypeOfSource": "jar",
+                "CallMethodName": "----",
+                "CallType": "Async",
+                "QueueReturnMessage": "Your request is in process. We will update you on the status as soon as it is complete.",
+                "Result": "",
+                "GroupsToShowMenu": "a.b@gmail.com,c.d@gmail.com,LDAPActiveDirectoryGroup",
+                "AllowedGroupsAndUsersToAccess": "a.b@gmail.com,c.d@gmail.com,LDAPActiveDirectoryGroup",
+                "MessageForNotAllowed": "You are not authorized to access the resource",
+                "SubIntents": [
+                  {
+                    "IntentName": "SiteOptions",
+                    "IntentType": "Argument",
+                    "RequestText": "",
+                    "Result": "FCT_AWS",
+                    "ResultForInternalProcess": "FCT_AWS"
+                  },
+                  {
+                    "IntentName": "IntentName",
+                    "TypeOfSource": "String",
+                    "IntentType": "Argument",
+                    "RequestText": "",
+                    "Result": "WorkflowStatus",
+                    "ResultForInternalProcess": "WorkflowStatus"
+                  },
+                  {
+                    "IntentName": "ItemId",
+                    "IntentType": "Argument",
+                    "TypeOfSource": "String",
+                    "RequestText": "Please provide the item id for which you would like to see the status"
+                  },
+                  {
+                    "IntentName": "RevisionId",
+                    "IntentType": "Argument",
+                    "TypeOfSource": "String",
+                    "RequestText": "Please provide the revision id for this Item"
+                  }
+                ]
+              },
+              {
+                "IntentName": "BulkActions",
+                "IntentType": "Choice",
+                "RequestText": "Bulk Actions - Coming Soon...",
+                "SubIntents": [
+                  {
+                    "IntentName": "UserStatusBulk",
+                    "IntentType": "Choice",
+                    "RequestText": "User Status Bulk",
+                    "SourceNameOfCallMethod": "Exe\\java\\executeOperationWrapper.jar",
+                    "TypeOfSource": "jar",
+                    "CallMethodName": "----",
+                    "CallType": "Async",
+                    "QueueReturnMessage": "Getting the status right away! Your request number is {TrackId}",
+                    "Result": "{TrackId} : {Result}",
+                    "SubIntents": [
+                      {
+                        "IntentName": "SiteOptions",
+                        "IntentType": "Argument",
+                        "RequestText": "",
+                        "Result": "BUR-QTEST",
+                        "ResultForInternalProcess": "BUR-QTEST"
+                      },
+                      {
+                        "IntentName": "IntentName",
+                        "IntentType": "Argument",
+                        "TypeOfSource": "String",
+                        "RequestText": "",
+                        "Result": "UserStatusBulk",
+                        "ResultForInternalProcess": "UserStatusBulk"
+                      },
+                      {
+                        "IntentName": "AttachmentPaths",
+                        "IntentType": "Argument",
+                        "RequestText": "Please attach input file with a list of UserId. Please add each entry on a separate line",
+                        "TypeOfSource": "Attachment"
+                      }
+                    ]
+                  },
+                  {
+                    "IntentName": "Back",
+                    "RequestText": "Back",
+                    "IntentType": "Choice",
+                    "NextIntent": [
+                      {
+                        "Condition": "",
+                        "Name": "Task"
+                      }
+                    ]
+                  }
+                ]
+              },
+              {
+                "IntentName": "Back",
+                "RequestText": "Back",
+                "IntentType": "Choice",
+                "NextIntent": [
+                  {
+                    "Condition": "",
+                    "Name": "TeamcenterAdmin"
+                  }
+                ]
+              }
+            ]
+          },
+          {
+            "IntentName": "Teamcenter",
+            "IntentType": "Choice",
+            "RequestText": "Teamcenter User",
+            "SubIntents": [
+              {
+                "IntentName": "PartStatus",
+                "IntentType": "Choice",
+                "RequestText": "Part Status",
+                "SourceNameOfCallMethod": "Exe\\java\\executeOperationWrapper.jar",
+                "TypeOfSource": "jar",
+                "CallMethodName": "----",
+                "CallType": "Async",
+                "QueueReturnMessage": "Your request is in process. We will update you on the status as soon as it is complete.",
+                "Result": "",
+                "GroupsToShowMenu": "",
+                "AllowedGroupsAndUsersToAccess": "",
+                "MessageForNotAllowed": "You are not authorized to access the resource",
+                "SubIntents": [
+                  {
+                    "IntentName": "SiteOptions",
+                    "IntentType": "Argument",
+                    "RequestText": "",
+                    "Result": "BUR-QTEST",
+                    "ResultForInternalProcess": "BUR-QTEST"
+                  },
+                  {
+                    "IntentName": "IntentName",
+                    "TypeOfSource": "String",
+                    "IntentType": "Argument",
+                    "RequestText": "",
+                    "Result": "PartStatus",
+                    "ResultForInternalProcess": "PartStatus"
+                  },
+                  {
+                    "IntentName": "ItemId",
+                    "IntentType": "Argument",
+                    "TypeOfSource": "String",
+                    "RequestText": "Please provide the item id for which you would like to see the status"
+                  },
+                  {
+                    "IntentName": "RevisionId",
+                    "IntentType": "Argument",
+                    "TypeOfSource": "String",
+                    "RequestText": "Please provide the revision id for this Item"
+                  }
+                ]
+              },
+              {
+                "IntentName": "Back",
+                "RequestText": "Back",
+                "IntentType": "Choice",
+                "NextIntent": [
+                  {
+                    "Condition": "",
+                    "Name": "Task"
+                  }
+                ]
+              }
+            ]
+          },
+          {
+            "IntentName": "DocumentRetrieval",
+            "IntentType": "Choice",
+            "RequestText": "Find Document",
+            "SourceNameOfCallMethod": "KBCall",
+            "TypeOfSource": "",
+            "CallMethodName": "",
+            "CallType": "Sync",
+            "ResultType": "",
+            "NextIntent": [],
+            "SubIntents": [
+              {
+                "IntentName": "searchTerm",
+                "TypeOfSource": "String",
+                "IntentType": "Argument",
+                "RequestText": "Which document are you looking for ?"
+              },
+              {
+                "IntentName": "user",
+                "TypeOfSource": "String",
+                "IntentType": "Argument",
+                "RequestText": "",
+                "Result": "{UserName}",
+                "ResultForInternalProcess": "{UserName}"
+              },
+              {
+                "IntentName": "group",
+                "TypeOfSource": "String",
+                "IntentType": "Argument",
+                "Result": "TestGroup",
+                "ResultForInternalProcess": "TestGroup"
+              }
+            ]
+          },
+          {
+            "IntentName": "Information",
+            "IntentType": "Choice",
+            "RequestText": "Find Information",
+            "SourceNameOfCallMethod": "KBCall",
+            "TypeOfSource": "",
+            "CallMethodName": "",
+            "CallType": "Sync",
+            "ResultType": "",
+            "NextIntent": [],
+            "SubIntents": [
+              {
+                "IntentName": "searchTerm",
+                "TypeOfSource": "String",
+                "IntentType": "Argument",
+                "RequestText": "What information are you looking for ?"
+              },
+              {
+                "IntentName": "user",
+                "TypeOfSource": "String",
+                "IntentType": "Argument",
+                "RequestText": "",
+                "Result": "{UserName}",
+                "ResultForInternalProcess": "{UserName}"
+              },
+              {
+                "IntentName": "group",
+                "TypeOfSource": "String",
+                "IntentType": "Argument",
+                "Result": "TestGroup",
+                "ResultForInternalProcess": "TestGroup"
+              },
+              {
+                "IntentName": "category",
+                "TypeOfSource": "String",
+                "IntentType": "Argument",
+                "Result": "__INFO__",
+                "ResultForInternalProcess": "__INFO__"
+              }
+            ]
+          }
+        ]
+  }
+]

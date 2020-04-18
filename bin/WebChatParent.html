@@ -1,0 +1,71 @@
+﻿<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="utf-8" />
+    <title></title>
+    <style type="text/css">
+    </style>
+    <script src="https://code.jquery.com/jquery-1.12.4.js"></script>
+    <script src="https://code.jquery.com/ui/1.12.1/jquery-ui.js"></script>
+
+    <script type="text/javascript">
+
+
+    </script>
+
+
+    <script type="text/javascript">
+        
+        document.addEventListener('DOMContentLoaded', function () {
+            var elemDiv1 = document.createElement('div');
+            elemDiv1.id = "OpenChatIcon"
+            elemDiv1.style.cssText = '';
+            elemDiv1.innerHTML = "<img id='WebChatOpenIcon' style = 'position:fixed;display:block;right:5px;bottom:5px;width:100px;height:100px;'  src='Image/boticon.png' /><div style='width: 5px; height: 5px;background-color:black;cursor: nw-resize;position:absolute;z-index:100;right:350px;bottom:500px;' id='TopLeftDragContrl'></div><div id='WebChatOuterFrame' style='position: fixed; display: block; right: 5px; bottom: 5px; width: 350px; height: 500px; visibility: hidden; background-image: url(../Image/AdientBKImage.png); -webkit-border-top-left-radius: 10px; -webkit-border-top-right-radius: 10px; -webkit-border-bottom-right-radius: 10px; -webkit-border-bottom-left-radius: 10px; -moz-border-radius-topleft: 10px; -moz-border-radius-topright: 10px; -moz-border-radius-bottomright: 10px; -moz-border-radius-bottomleft: 10px; border-top-left-radius: 10px; border-top-right-radius: 10px; border-bottom-right-radius: 10px; border-bottom-left-radius: 10px; -webkit-box-shadow: -5px -5px 15px -5px rgba(0, 0, 0, 0.75); -moz-box-shadow: -5px -5px 15px -5px rgba(0, 0, 0, 0.75); box - shadow: -5px -5px 15px -5px rgba(0, 0, 0, 0.75);'><iframe id='WebChatIFrame' src = '" + window.location.origin + "/WebChat.aspx' frameborder = '0' allowfullscreen = '' style = 'width:350px;height:500px;background-image: url(../Image/AdientBKImage.png);-webkit-border-top-left-radius: 10px; -webkit-border-top-right-radius: 10px; -webkit-border-bottom-right-radius: 10px; -webkit-border-bottom-left-radius: 10px; -moz-border-radius-topleft: 10px; -moz-border-radius-topright: 10px; -moz-border-radius-bottomright: 10px; -moz-border-radius-bottomleft: 10px; border-top-left-radius: 10px; border-top-right-radius: 10px; border-bottom-right-radius: 10px; border-bottom-left-radius: 10px;' ></iframe ></div>";
+            document.body.appendChild(elemDiv1);
+            document.getElementById("WebChatOpenIcon").addEventListener('click', function (event) {
+                document.getElementById("WebChatOuterFrame").style.visibility = "visible";
+                document.getElementById("WebChatOpenIcon").style.visibility = "hidden";
+                
+                document.getElementById("TopLeftDragContrl").style.visibility = "visible";
+            });
+            $('#TopLeftDragContrl').draggable({
+                drag: function () {
+                    var offset = $(this).offset();
+                    var xPos = offset.left;
+                    var yPos = offset.top;
+                    //  $("#Bot").text('x =' + xPos + '; y =' + yPos + '; height =' + window.screen.height + '; width =' + window.screen.width);
+                    document.getElementById("WebChatOuterFrame").style.height = ((window.screen.height - 119) - yPos).toString() + "px";
+                    document.getElementById("WebChatOuterFrame").style.width = ((window.screen.width - 15) - xPos).toString() + "px";
+
+                    document.getElementById("WebChatIFrame").style.height = ((window.screen.height - 119) - yPos).toString() + "px";
+                    document.getElementById("WebChatIFrame").style.width = ((window.screen.width - 15) - xPos).toString() + "px";
+                },
+                drop: function (event, ui) {
+                    document.getElementById("TopLeftDragContrl").style.left = (window.screen.width - document.getElementById("WebChatOuterFrame").style.width - 5);
+                    document.getElementById("TopLeftDragContrl").style.top = (window.screen.height - document.getElementById("WebChatOuterFrame").style.height - 115);
+                    //  var iframeEl = document.getElementById('WebChatIFrame')
+
+                    //  iframeEl.contentWindow.postMessage(document.getElementById("WebChatOuterFrame").style.height + "px;" + document.getElementById("WebChatOuterFrame").style.width + "px", '*');
+                }
+            });
+        });
+
+
+        function receiveMessage(event) {
+            document.getElementById("WebChatOuterFrame").style.visibility = "hidden";
+            document.getElementById("WebChatOpenIcon").style.visibility = "visible";
+            document.getElementById("TopLeftDragContrl").style.visibility = "hidden";
+        }
+        $(function () {
+            window.addEventListener("message", receiveMessage, false);
+                    });
+    </script>
+</head>
+<body>
+
+
+
+
+</body>
+</html>

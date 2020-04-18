@@ -1,0 +1,25 @@
+﻿{
+  "IntentType": "Choice",
+  "SubIntents": [
+    {
+      "IntentType": "Argument",
+      "Options": [
+        "BUR-QTEST-SSO",
+        "BUR-QTEST-NonSSO",
+        "YFAS-QTEST-SSO",
+        "YFAS-QTEST-NonSSO"
+      ],
+      "IntentName": "serverId",
+      "ResultForInternalProcess": "",
+      "RequestText": "Select the server name<br><table border='1'><tr><td>&nbsp;</td></tr><tr><td>Assignment Service</td></tr><tr><td>Host</td></tr><tr><td>Last Restart Warm Servers Time</td></tr><tr><td>Number of Assigned Servers</td></tr><tr><td>Number of Cold Servers</td></tr><tr><td>Number of Servers</td></tr><tr><td>Number of Servers Terminated Before Normal Timeout</td></tr><tr><td>Number of Warm Servers</td></tr><tr><td>Number of Warming Up Servers</td></tr><tr><td>Pool ID</td></tr><table><br>",
+      "TypeOfSource": "String",
+      "Result": "serverId"
+    }
+  ],
+  "IntentName": "DynamicJDMKRequest",
+  "SourceNameOfCallMethod": "http://S700M093:8082/BotToolsIntegration/REST/jdmk/GetAdminPoolInfo",
+  "CallType": "Sync",
+  "RequestText": "",
+  "TypeOfSource": "WebService(Post)",
+  "CallMethodName": "---"
+}

@@ -1,0 +1,20 @@
+ADNT Latest Released
+ADNT Latest Working
+ADNT Porting Validation
+ADNT Precise
+Any Status; No Working
+Any Status; Working
+Impact Analysis Revision Rule
+Latest by Alpha Revision Order
+Latest by Creation Date
+Latest Working
+Precise Only
+Precise; Any Status
+Precise; Working
+PVBranch
+Readiness Check Revision Rule
+Readiness Check Revision Rule-CN
+Readiness Check Revision Rule-DF
+Working(Current Group); Any Status
+Working(Current User); Any Status
+Working; Any Status

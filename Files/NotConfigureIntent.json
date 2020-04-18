@@ -1,0 +1,44 @@
+﻿{
+  "IntentType": "Choice",
+  "SubIntents": [
+    {
+      "IntentType": "CardArgument",
+      "Options": [
+        "1 - Immediate",
+        "2 - High",
+        "3 - Medium",
+        "4- Low"
+      ],
+      "IntentName": "Urgency",
+      "IsOptional": true,
+      "RequestText": "Urgency",
+      "TypeOfSource": "String",
+      "OptionType": "DropDown"
+    },
+    {
+      "IntentType": "CardArgument",
+      "Options": ["https://adientdevpdlbot.azurewebsites.net/Files/TestState.txt"],
+      "IntentName": "Category",
+      "IsOptional": true,
+      "RequestText": "Category",
+      "TypeOfSource": "String",
+      "OptionType": "CascadeDropDown"
+    },
+    {
+      "IntentType": "CardArgument",
+      "Options": ["https://adientdevpdlbot.azurewebsites.net/Files/TestCity.txt"],
+      "IntentName": "Subcategory",
+      "IsOptional": true,
+      "RequestText": "SubCategory",
+      "TypeOfSource": "String",
+      "OptionType": "CascadeDropDown"
+    }
+  ],
+  "IntentName": "DynamicCreateIncidentRequest",
+  "SourceNameOfCallMethod": "http://S700M093:8082/BotToolsIntegration/REST/servicenow/CreateIncident",
+  "CallType": "Sync",
+  "RequestText": "",
+  "ResultType": "ProcessJSON",
+  "TypeOfSource": "WebService(Post)",
+  "CallMethodName": "---"
+}

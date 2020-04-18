@@ -1,0 +1,28 @@
+Key,Values
+report,reports;
+test,test1;test2;test3
+Teamcenter,tc;tc9;tc11;tc12;TC;
+SAP,ERP;erp
+RevisionId,rev;revision;
+Hi,hello;hi there;hi?;hi..;hi?.;hii;
+password,passwords
+locate,find;get;search;
+option,options;
+function,functions;
+operation,operations;
+Exit,Exit-Try Later;cancel;exit - try later;
+tcserver,tc server;
+CAD Env,CATIA Env;
+Visualization,VisView;
+Change Notice,CN;ChangeNotice;
+Change Request,CR;ChangeRequest;
+Design Freeze,DF;DesignFreeze;
+Problem Report,PR;ProblemReport;
+Engineering Manager,EM;EngineeringManager;
+Program Manager,PM;ProgramManager;
+Active WorkSpace,AWC;ActiveWorkSpace;
+Deviation Authorization,DA;
+Drawing Only Change,DOC;
+Teamcenter Reports,TcRA;
+Material Master,MM;
+{LoginName},me;mine;my;i;myself
